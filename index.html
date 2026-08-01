@@ -11,12 +11,11 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="announcement">Perfumes autorais inspirados em grandes sucessos da perfumaria internacional.</div>
+  <div class="announcement">Perfumes inspirados nas fragrâncias mais desejadas da perfumaria internacional.</div>
 
   <header class="header">
     <a class="brand" href="#inicio" aria-label="AP Reserve">
-      <span class="brand-mark">AP</span>
-      <span><strong>AP Reserve</strong><small>Perfumaria inspirada</small></span>
+      <img class="brand-logo" src="assets/logo-ap-reserve.png" alt="AP Reserve — Collection Privée">
     </a>
     <nav>
       <a href="#catalogo">Catálogo</a>
@@ -33,7 +32,7 @@
       <div class="hero-copy">
         <span class="eyebrow">Elegância que permanece</span>
         <h1>Sua presença,<br><em>sua assinatura.</em></h1>
-        <p>Fragrâncias inspiradas em ícones da perfumaria, preparadas com cuidado para transformar momentos em memória.</p>
+        <p>Uma curadoria de fragrâncias inspiradas em ícones da perfumaria internacional, preparadas artesanalmente para transformar presença em assinatura.</p>
         <div class="hero-actions">
           <a class="primary-button" href="#catalogo">Conhecer fragrâncias</a>
           <button class="secondary-button" id="heroCart">Ver meu carrinho</button>
@@ -46,7 +45,7 @@
       </div>
       <div class="hero-visual" aria-hidden="true">
         <div class="glow"></div>
-        <div class="hero-bottle"><span>AP</span><small>RESERVE</small></div>
+        <div class="hero-bottle"><img src="assets/logo-ap-reserve.png" alt=""></div>
         <div class="floating-note note-one">Cítricos</div>
         <div class="floating-note note-two">Madeiras</div>
         <div class="floating-note note-three">Flores</div>
@@ -104,7 +103,7 @@
   </main>
 
   <footer>
-    <div class="brand footer-brand"><span class="brand-mark">AP</span><span><strong>AP Reserve</strong><small>Perfumaria inspirada</small></span></div>
+    <div class="brand footer-brand"><img class="brand-logo" src="assets/logo-ap-reserve.png" alt="AP Reserve — Collection Privée"></div>
     <p>Perfumes inspirados. Todas as marcas citadas pertencem aos seus respectivos proprietários.</p>
     <p>© <span id="year"></span> AP Reserve.</p>
   </footer>
@@ -122,6 +121,8 @@
     </div>
   </aside>
 
+  <button class="mobile-cart" id="mobileCart" aria-label="Abrir carrinho"><span>Meu carrinho</span><strong><b id="mobileCartCount">0</b> itens</strong></button>
+
   <div class="modal" id="productModal" aria-hidden="true">
     <button class="modal-close" id="closeModal">×</button>
     <div class="modal-image-wrap"><img id="modalImage" alt="Frasco original usado como referência olfativa"><span>Imagem da referência original</span></div>
@@ -131,6 +132,7 @@
       <p class="inspired">Inspirado em <strong id="modalInspired"></strong></p>
       <p id="modalDescription"></p>
       <div class="notes"><strong>Perfil olfativo</strong><div id="modalNotes"></div></div>
+      <div class="perfume-details"><div><small>Melhor ocasião</small><strong id="modalOccasion"></strong></div><div><small>Estação</small><strong id="modalSeason"></strong></div><div><small>Desempenho</small><strong id="modalPerformance"></strong></div></div>
       <div class="modal-price"><span>50 ml</span><strong id="modalPrice"></strong></div>
       <button class="primary-button full" id="modalBuy">Adicionar ao carrinho</button>
       <a id="officialLink" class="reference-link" target="_blank" rel="noopener noreferrer">Conhecer a referência original ↗</a>
