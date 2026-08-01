@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AP Reserve — perfumes inspirados em grandes sucessos da perfumaria, produzidos artesanalmente." />
+  <title>AP Reserve | Perfumes Inspirados</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="announcement">Perfumes autorais inspirados em grandes sucessos da perfumaria internacional.</div>
+
+  <header class="header">
+    <a class="brand" href="#inicio" aria-label="AP Reserve">
+      <span class="brand-mark">AP</span>
+      <span><strong>AP Reserve</strong><small>Perfumaria inspirada</small></span>
+    </a>
+    <nav>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <button class="cart-button" id="openCart" aria-label="Abrir carrinho">
+      Carrinho <span id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <span class="eyebrow">Elegância que permanece</span>
+        <h1>Sua presença,<br><em>sua assinatura.</em></h1>
+        <p>Fragrâncias inspiradas em ícones da perfumaria, preparadas com cuidado para transformar momentos em memória.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#catalogo">Conhecer fragrâncias</a>
+          <button class="secondary-button" id="heroCart">Ver meu carrinho</button>
+        </div>
+        <div class="hero-points">
+          <span>✦ Frascos de 50 ml</span>
+          <span>✦ Produção artesanal</span>
+          <span>✦ Pedido pelo WhatsApp</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="glow"></div>
+        <div class="hero-bottle"><span>AP</span><small>RESERVE</small></div>
+        <div class="floating-note note-one">Cítricos</div>
+        <div class="floating-note note-two">Madeiras</div>
+        <div class="floating-note note-three">Flores</div>
+      </div>
+    </section>
+
+    <section class="notice">
+      <strong>Transparência em primeiro lugar:</strong>
+      A AP Reserve comercializa perfumes inspirados. Não vendemos produtos originais das marcas citadas, não possuímos vínculo com elas e utilizamos seus nomes apenas como referência olfativa para facilitar a escolha.
+    </section>
+
+    <section class="catalog-section" id="catalogo">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Encontre sua fragrância</span>
+          <h2>Catálogo AP Reserve</h2>
+        </div>
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Buscar perfume ou referência..." />
+        </label>
+      </div>
+
+      <div class="filters" role="tablist" aria-label="Filtrar perfumes">
+        <button class="filter active" data-filter="todos">Todos</button>
+        <button class="filter" data-filter="masculino">Masculinos</button>
+        <button class="filter" data-filter="feminino">Femininos</button>
+        <button class="filter" data-filter="compartilhavel">Compartilháveis</button>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+      <p class="empty-state" id="emptyState">Nenhuma fragrância encontrada.</p>
+    </section>
+
+    <section class="about" id="sobre">
+      <div>
+        <span class="eyebrow">A experiência AP Reserve</span>
+        <h2>Perfume não é detalhe.<br>É parte da sua história.</h2>
+      </div>
+      <div class="about-grid">
+        <article><span>01</span><h3>Escolha cuidadosa</h3><p>Um catálogo inspirado em fragrâncias marcantes, das frescas e elegantes às intensas e envolventes.</p></article>
+        <article><span>02</span><h3>Produção artesanal</h3><p>Cada frasco é preparado em pequenos lotes, com atenção à concentração, apresentação e acabamento.</p></article>
+        <article><span>03</span><h3>Compra simples</h3><p>Adicione ao carrinho, confira o pedido e conclua diretamente pelo WhatsApp, sem cadastro e sem complicação.</p></article>
+      </div>
+    </section>
+
+    <section class="faq" id="duvidas">
+      <span class="eyebrow">Informações importantes</span>
+      <h2>Dúvidas frequentes</h2>
+      <details><summary>Os perfumes são originais?</summary><p>Não. São perfumes inspirados em fragrâncias conhecidas. Os nomes das marcas e perfumes originais aparecem somente como referência olfativa.</p></details>
+      <details><summary>Qual é o tamanho do frasco?</summary><p>Os perfumes do catálogo estão configurados em frascos de 50 ml. O tamanho e o preço podem ser alterados facilmente no arquivo de produtos.</p></details>
+      <details><summary>Como concluo o pedido?</summary><p>Ao finalizar o carrinho, o site abre uma conversa no WhatsApp com todos os itens, quantidades e valor total já preenchidos.</p></details>
+      <details><summary>A fixação é igual ao perfume original?</summary><p>Desempenho e evolução variam conforme pele, clima, lote e matérias-primas. A proposta é oferecer uma experiência olfativa inspirada, não uma reprodução oficial.</p></details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand footer-brand"><span class="brand-mark">AP</span><span><strong>AP Reserve</strong><small>Perfumaria inspirada</small></span></div>
+    <p>Perfumes inspirados. Todas as marcas citadas pertencem aos seus respectivos proprietários.</p>
+    <p>© <span id="year"></span> AP Reserve.</p>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer-header"><div><span class="eyebrow">Seu pedido</span><h2>Carrinho</h2></div><button class="icon-button" id="closeCart">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty"><span>◇</span><h3>Seu carrinho está vazio</h3><p>Escolha uma fragrância para começar.</p></div>
+    <div class="cart-footer">
+      <div class="subtotal"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div>
+      <button class="whatsapp-button" id="checkoutButton">Concluir pelo WhatsApp</button>
+      <small>Você poderá revisar a mensagem antes de enviar.</small>
+    </div>
+  </aside>
+
+  <div class="modal" id="productModal" aria-hidden="true">
+    <button class="modal-close" id="closeModal">×</button>
+    <div class="modal-image-wrap"><img id="modalImage" alt="Frasco original usado como referência olfativa"><span>Imagem da referência original</span></div>
+    <div class="modal-content">
+      <span class="category-pill" id="modalCategory"></span>
+      <h2 id="modalName"></h2>
+      <p class="inspired">Inspirado em <strong id="modalInspired"></strong></p>
+      <p id="modalDescription"></p>
+      <div class="notes"><strong>Perfil olfativo</strong><div id="modalNotes"></div></div>
+      <div class="modal-price"><span>50 ml</span><strong id="modalPrice"></strong></div>
+      <button class="primary-button full" id="modalBuy">Adicionar ao carrinho</button>
+      <a id="officialLink" class="reference-link" target="_blank" rel="noopener noreferrer">Conhecer a referência original ↗</a>
+      <small class="legal-mini">A imagem e o nome original são exibidos apenas como referência. O produto vendido é AP Reserve, inspirado nessa fragrância.</small>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Produto adicionado ao carrinho.</div>
+  <script src="script.js"></script>
+</body>
+</html>
