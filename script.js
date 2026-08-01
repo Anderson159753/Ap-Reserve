@@ -30,7 +30,7 @@ const products = [
     "inspired": "Musk White Intense — Lattafa",
     "category": "feminino",
     "price": 65,
-    "image": "assets/musk-white-intense.png",
+    "image": "musk-white-intense.png",
     "official": "https://www.lattafa-usa.com/",
     "notes": [
       "Almíscar branco",
@@ -51,7 +51,7 @@ const products = [
     "inspired": "Paradoxe — Prada",
     "category": "feminino",
     "price": 65,
-    "image": "assets/paradoxe.png",
+    "image": "paradoxe.png",
     "official": "https://www.prada-beauty.com/fragrance/paradoxe/",
     "notes": [
       "Néroli",
@@ -93,7 +93,7 @@ const products = [
     "inspired": "Velvet Rose & Oud — Jo Malone London",
     "category": "feminino",
     "price": 65,
-    "image": "assets/velvet-rose-oud.png",
+    "image": "velvet-rose-oud.png",
     "official": "https://www.jomalone.com/",
     "notes": [
       "Rosa",
@@ -114,7 +114,7 @@ const products = [
     "inspired": "Oriana — Parfums de Marly",
     "category": "feminino",
     "price": 65,
-    "image": "assets/oriana.png",
+    "image": "oriana.png",
     "official": "https://parfums-de-marly.com/products/oriana",
     "notes": [
       "Mandarina",
@@ -156,7 +156,7 @@ const products = [
     "inspired": "La Bomba — Carolina Herrera",
     "category": "feminino",
     "price": 65,
-    "image": "assets/la-bomba.png",
+    "image": "la-bomba.png",
     "official": "https://www.carolinaherrera.com/",
     "notes": [
       "Pitaya",
@@ -513,7 +513,7 @@ const products = [
     "inspired": "Stallion Leather — Carolina Herrera",
     "category": "masculino",
     "price": 65,
-    "image": "assets/stallion-leather.png",
+    "image": "stallion-leather.png",
     "official": "https://www.carolinaherrera.com/",
     "notes": [
       "Couro",
@@ -555,7 +555,7 @@ const products = [
     "inspired": "Carmina — Creed",
     "category": "feminino",
     "price": 65,
-    "image": "assets/carmina.png",
+    "image": "carmina.png",
     "official": "https://creedboutique.com/products/carmina",
     "notes": [
       "Cereja negra",
@@ -576,7 +576,7 @@ const products = [
     "inspired": "Oud Maracujá — Maison Crivelli",
     "category": "compartilhavel",
     "price": 65,
-    "image": "assets/oud-maracuja.png",
+    "image": "oud-maracuja.png",
     "official": "https://maisoncrivelli.com/products/oud-maracuja",
     "notes": [
       "Maracujá",
@@ -639,7 +639,7 @@ const products = [
     "inspired": "Bvlgari Man Wood Essence — Bvlgari",
     "category": "masculino",
     "price": 65,
-    "image": "assets/bvlgari-man-wood-essence.png",
+    "image": "bvlgari-man-wood-essence.png",
     "official": "https://www.bulgari.com/",
     "notes": [
       "Cítricos",
@@ -702,7 +702,7 @@ const products = [
     "inspired": "Vibrato — Sospiro",
     "category": "compartilhavel",
     "price": 65,
-    "image": "assets/vibrato.png",
+    "image": "vibrato.png",
     "official": "https://sospirointernational.com/",
     "notes": [
       "Toranja",
@@ -723,7 +723,7 @@ const products = [
     "inspired": "Bleu L'Exclusif — Chanel",
     "category": "masculino",
     "price": 65,
-    "image": "assets/bleu-lexclusif.png",
+    "image": "bleu-lexclusif.png",
     "official": "https://www.chanel.com/",
     "notes": [
       "Madeiras aromáticas",
@@ -744,7 +744,7 @@ const products = [
     "inspired": "Reflection 45 — Amouage",
     "category": "masculino",
     "price": 65,
-    "image": "assets/reflection-45.png",
+    "image": "reflection-45.png",
     "official": "https://amouage.com/products/reflection-45-man",
     "notes": [
       "Lavanda",
