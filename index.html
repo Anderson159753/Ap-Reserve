@@ -179,6 +179,46 @@
     </div>
   </div>
 
+
+  <div class="checkout-modal" id="checkoutModal" aria-hidden="true">
+    <button class="modal-close checkout-close" id="closeCheckout" type="button" aria-label="Fechar">×</button>
+    <div class="checkout-modal-content">
+      <span class="eyebrow">Finalizar pedido</span>
+      <h2>Seus dados</h2>
+      <p class="checkout-intro">Preencha os dados abaixo para enviarmos seu pedido completo pelo WhatsApp.</p>
+
+      <form id="checkoutForm">
+        <label class="form-field">
+          <span>Nome completo</span>
+          <input id="customerName" name="customerName" type="text" autocomplete="name" placeholder="Digite seu nome" required>
+        </label>
+
+        <label class="form-field">
+          <span>Telefone</span>
+          <input id="customerPhone" name="customerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(19) 99999-9999" required>
+        </label>
+
+        <fieldset class="delivery-options">
+          <legend>Como deseja receber?</legend>
+          <label><input type="radio" name="deliveryType" value="Retirada" checked><span>Retirada</span></label>
+          <label><input type="radio" name="deliveryType" value="Entrega"><span>Entrega</span></label>
+        </fieldset>
+
+        <label class="form-field">
+          <span id="deliveryLocationLabel">Local para retirada</span>
+          <input id="deliveryLocation" name="deliveryLocation" type="text" placeholder="Ex.: combinar pelo WhatsApp" required>
+        </label>
+
+        <div class="payment-fixed">
+          <span>Forma de pagamento</span>
+          <strong>PIX</strong>
+        </div>
+
+        <button class="whatsapp-button checkout-submit" type="submit">Enviar pedido pelo WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
   <div class="toast" id="toast">Produto adicionado ao carrinho.</div>
   <script src="script.js"></script>
 </body>

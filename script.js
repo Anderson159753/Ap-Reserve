@@ -854,19 +854,41 @@ function openProduct(id){
   $("#productModal").classList.add("open");$("#overlay").classList.add("active");document.body.classList.add("locked")
 }
 function closeModal(){$("#productModal").classList.remove("open");if(!$("#cartDrawer").classList.contains("open")){$("#overlay").classList.remove("active");document.body.classList.remove("locked")}}
-function checkout(){
+function openCheckout(){
   if(!cart.length){alert("Seu carrinho está vazio.");return}
+  closeCart();
+  $("#checkoutModal").classList.add("open");
+  $("#checkoutModal").setAttribute("aria-hidden","false");
+  $("#overlay").classList.add("active");
+  document.body.classList.add("locked");
+  setTimeout(()=>$("#customerName").focus(),250);
+}
+function closeCheckout(){
+  $("#checkoutModal").classList.remove("open");
+  $("#checkoutModal").setAttribute("aria-hidden","true");
+  $("#overlay").classList.remove("active");
+  document.body.classList.remove("locked");
+}
+function submitCheckout(e){
+  e.preventDefault();
+  if(!cart.length){closeCheckout();alert("Seu carrinho está vazio.");return}
+  const name=$("#customerName").value.trim();
+  const phone=$("#customerPhone").value.trim();
+  const deliveryType=document.querySelector('input[name="deliveryType"]:checked').value;
+  const location=$("#deliveryLocation").value.trim();
+  if(!name||!phone||!location){alert("Preencha todos os dados para continuar.");return}
   const totals=getCartTotals();
   const lines=cart.map(i=>{const p=products.find(x=>x.id===i.id);return `• ${i.qty}x ${p.name} — 50 ml (${money(totals.unitPrice*i.qty)})\n  Inspiração em ${p.brand}`});
   const promoText=totals.promoActive?`\n\n*Desconto AP Reserve aplicado:* ${totals.count} perfumes por ${money(PROMO_PRICE)} cada.\n*Economia:* ${money(totals.savings)}`:'';
-  const msg=`Olá! Gostaria de fazer o seguinte pedido na ${STORE_NAME}:\n\n${lines.join("\n\n")}${promoText}\n\n*Total: ${money(totals.total)}*\n\nNome:\nTelefone:\nForma de entrega/retirada:`;
+  const msg=`Olá! Gostaria de fazer o seguinte pedido na ${STORE_NAME}:\n\n${lines.join("\n\n")}${promoText}\n\n*Total: ${money(totals.total)}*\n\n*Dados do cliente*\nNome: ${name}\nTelefone: ${phone}\nPagamento: PIX\nForma de recebimento: ${deliveryType}\nLocal: ${location}`;
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,"_blank");
+  closeCheckout();
 }
 
 function showToast(){$("#toast").classList.add("show");setTimeout(()=>$("#toast").classList.remove("show"),1800)}
 
 document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");currentFilter=btn.dataset.filter;renderProducts()}));
-$("#searchInput").addEventListener("input",renderProducts);$("#openCart").onclick=openCart;$("#mobileCart").onclick=openCart;$("#heroCart").onclick=openCart;$("#closeCart").onclick=closeCart;$("#closeModal").onclick=closeModal;$("#overlay").onclick=()=>{closeCart();closeModal();closeMenu()};$("#checkoutButton").onclick=checkout;$("#modalBuy").onclick=()=>{if(currentProduct){addToCart(currentProduct.id);closeModal();openCart()}};
+$("#searchInput").addEventListener("input",renderProducts);$("#openCart").onclick=openCart;$("#mobileCart").onclick=openCart;$("#heroCart").onclick=openCart;$("#closeCart").onclick=closeCart;$("#closeModal").onclick=closeModal;$("#overlay").onclick=()=>{closeCart();closeModal();closeMenu();closeCheckout()};$("#checkoutButton").onclick=openCheckout;$("#modalBuy").onclick=()=>{if(currentProduct){addToCart(currentProduct.id);closeModal();openCart()}};
 const mobileMenu=$("#mobileMenu");
 function openMenu(){mobileMenu.classList.add("open");mobileMenu.setAttribute("aria-hidden","false");$("#overlay").classList.add("active");document.body.classList.add("locked");$("#openMenu").setAttribute("aria-expanded","true")}
 function closeMenu(){if(!mobileMenu)return;mobileMenu.classList.remove("open");mobileMenu.setAttribute("aria-hidden","true");$("#openMenu").setAttribute("aria-expanded","false");if(!$("#cartDrawer").classList.contains("open")&&!$("#productModal").classList.contains("open")){$("#overlay").classList.remove("active");document.body.classList.remove("locked")}}
@@ -875,5 +897,22 @@ $("#bottomCart").onclick=openCart;
 $("#bottomFavorites").onclick=()=>{document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b.dataset.filter==="favoritos"));currentFilter="favoritos";renderProducts();document.querySelector("#catalogo").scrollIntoView({behavior:"smooth"})};
 $(".header").addEventListener("click",e=>{if(window.innerWidth<=760&&e.target===$(".header"))openCart()});
 $("#year").textContent=new Date().getFullYear();
-document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeCart();closeModal()}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeCart();closeModal();closeCheckout()}});
+
+$("#closeCheckout").onclick=closeCheckout;
+$("#checkoutForm").addEventListener("submit",submitCheckout);
+document.querySelectorAll('input[name="deliveryType"]').forEach(input=>input.addEventListener("change",()=>{
+  const delivery=input.value==="Entrega"&&input.checked;
+  $("#deliveryLocationLabel").textContent=delivery?"Endereço para entrega":"Local para retirada";
+  $("#deliveryLocation").placeholder=delivery?"Rua, número, bairro e cidade":"Ex.: combinar pelo WhatsApp";
+}));
+$("#customerPhone").addEventListener("input",e=>{
+  let v=e.target.value.replace(/\D/g,"").slice(0,11);
+  if(v.length>10)v=v.replace(/(\d{2})(\d{5})(\d{0,4})/,"($1) $2-$3");
+  else if(v.length>6)v=v.replace(/(\d{2})(\d{4})(\d{0,4})/,"($1) $2-$3");
+  else if(v.length>2)v=v.replace(/(\d{2})(\d{0,5})/,"($1) $2");
+  else if(v.length)v=v.replace(/(\d{0,2})/,"($1");
+  e.target.value=v;
+});
+
 renderProducts();renderCart();

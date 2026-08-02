@@ -206,3 +206,34 @@
   .product-info h3{font-size:19px;min-height:38px}
   .price strong{font-size:19px}
 }
+
+/* Formulário de finalização */
+.checkout-modal{position:fixed;left:50%;top:50%;z-index:70;width:min(520px,calc(100% - 28px));max-height:92vh;overflow:auto;background:var(--paper);border:1px solid rgba(184,148,79,.35);box-shadow:0 30px 80px rgba(22,10,8,.35);transform:translate(-50%,-46%) scale(.98);opacity:0;visibility:hidden;transition:.25s ease;padding:34px;border-radius:14px}
+.checkout-modal.open{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}
+.checkout-modal-content h2{font-family:"Cormorant Garamond",serif;font-size:44px;line-height:1;margin:6px 0 8px;color:var(--ink)}
+.checkout-intro{font-size:12px;line-height:1.65;color:var(--muted);margin:0 0 22px}
+.checkout-close{position:absolute;right:14px;top:14px}
+#checkoutForm{display:grid;gap:15px}
+.form-field{display:grid;gap:7px}
+.form-field>span,.delivery-options legend,.payment-fixed span{font-size:8px;text-transform:uppercase;letter-spacing:.13em;font-weight:700;color:#8f6b36}
+.form-field input{width:100%;min-height:50px;border:1px solid rgba(62,35,31,.22);background:#fffdf9;padding:0 14px;border-radius:6px;font:500 13px Montserrat,sans-serif;color:var(--ink);outline:none;transition:.2s}
+.form-field input:focus{border-color:#b8944f;box-shadow:0 0 0 3px rgba(184,148,79,.12)}
+.delivery-options{border:0;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.delivery-options legend{grid-column:1/-1;margin-bottom:7px}
+.delivery-options label{position:relative;cursor:pointer}
+.delivery-options input{position:absolute;opacity:0;pointer-events:none}
+.delivery-options label span{display:grid;place-items:center;min-height:48px;border:1px solid rgba(62,35,31,.2);background:#fffdf9;border-radius:6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;transition:.2s}
+.delivery-options input:checked+span{background:var(--ink);border-color:var(--ink);color:white;box-shadow:0 8px 18px rgba(43,23,21,.15)}
+.payment-fixed{display:flex;align-items:center;justify-content:space-between;padding:13px 14px;background:#f2eadf;border:1px solid rgba(184,148,79,.25);border-radius:6px}
+.payment-fixed strong{font-family:"Cormorant Garamond",serif;font-size:25px;color:var(--ink)}
+.checkout-submit{margin-top:2px}
+
+@media(max-width:760px){
+  .checkout-modal{left:0;right:0;top:auto;bottom:0;width:100%;max-height:92dvh;border-radius:18px 18px 0 0;padding:28px 18px calc(22px + env(safe-area-inset-bottom));transform:translateY(100%);opacity:1}
+  .checkout-modal.open{transform:translateY(0)}
+  .checkout-modal-content h2{font-size:39px}
+  .checkout-intro{font-size:10px;margin-bottom:18px}
+  .form-field input{min-height:52px;font-size:16px}
+  .delivery-options label span{min-height:50px}
+  .checkout-submit{min-height:54px}
+}
