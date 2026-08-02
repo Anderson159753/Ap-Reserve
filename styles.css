@@ -170,3 +170,39 @@
   .product-info{padding-left:11px;padding-right:10px}
   .product-info h3{font-size:22px}
 }
+
+
+/* Ajustes mobile: interface mais limpa e catálogo em duas colunas */
+@media (max-width:760px){
+  .header::after{content:"";width:42px;height:42px;display:block;pointer-events:none}
+  .header .cart-button{display:none!important}
+
+  .search-box{position:static;top:auto;z-index:auto;box-shadow:none;backdrop-filter:none}
+  .filters{position:static;top:auto;z-index:auto;background:transparent;backdrop-filter:none;padding:0 12px 8px;margin:0 -12px 18px;gap:7px}
+  .filter{min-height:38px;padding:9px 13px;font-size:7px;background:#fffaf4;flex:0 0 auto}
+
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .product-card{display:flex;min-height:0;border-radius:10px;overflow:hidden;box-shadow:0 5px 18px rgba(43,23,21,.07)}
+  .product-image{height:190px;min-height:0;border-radius:0;width:100%}
+  .product-image img{padding:14px}
+  .product-badge{left:7px;top:7px;font-size:6px;padding:5px 6px}
+  .favorite-button{right:7px;top:7px;width:34px;height:34px;font-size:19px}
+  .product-info{padding:11px 10px 10px;min-width:0}
+  .product-reference{font-size:6.5px;min-height:25px;padding-right:0;white-space:normal;overflow:visible;line-height:1.35}
+  .product-info h3{font-size:21px;line-height:.98;min-height:42px;margin:5px 0 6px;padding-right:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .product-info p{display:none}
+  .product-bottom{display:block;margin-top:auto}
+  .price{display:flex;align-items:baseline;gap:5px;margin-bottom:8px}
+  .price small{font-size:6.5px}
+  .price strong{font-size:21px}
+  .card-actions{display:block;margin:0}
+  .details-button{display:none!important}
+  .buy-button{width:100%;min-height:42px;padding:9px 5px;font-size:8px;border-radius:4px}
+}
+@media (max-width:370px){
+  .product-grid{gap:8px}
+  .product-image{height:170px}
+  .product-info{padding:9px 8px}
+  .product-info h3{font-size:19px;min-height:38px}
+  .price strong{font-size:19px}
+}

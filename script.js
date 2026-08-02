@@ -809,7 +809,7 @@ function renderProducts(){
         <h3>${p.name}</h3><p>${p.short}</p>
         <div class="product-bottom">
           <div class="price"><small>50 ml</small><strong>${money(p.price)}</strong></div>
-          <div class="card-actions"><button class="details-button" onclick="openProduct(${p.id})">Detalhes</button><button class="buy-button" onclick="addToCart(${p.id})">Comprar</button></div>
+          <div class="card-actions"><button class="buy-button" onclick="addToCart(${p.id})">Comprar</button></div>
         </div>
       </div>
     </article>`).join("");
