@@ -12,7 +12,7 @@ const products = [
     "inspired": "La Nuit Trésor — Lancôme",
     "category": "feminino",
     "price": 65,
-    "image": "assets/perfumes/la-nuit-trsor.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.29157.jpg",
     "official": "https://www.lancome.com.br/la-nuit-tresor",
     "notes": [
       "Pera",
@@ -33,7 +33,7 @@ const products = [
     "inspired": "Musk White Intense — Lattafa",
     "category": "feminino",
     "price": 65,
-    "image": "assets/perfumes/musk-white-intense.webp",
+    "image": "musk-white-intense.png",
     "official": "https://www.lattafa-usa.com/",
     "notes": [
       "Almíscar branco",
@@ -54,7 +54,7 @@ const products = [
     "inspired": "Paradoxe — Prada",
     "category": "feminino",
     "price": 65,
-    "image": "assets/perfumes/paradoxe.webp",
+    "image": "paradoxe.png",
     "official": "https://www.prada-beauty.com/fragrance/paradoxe/",
     "notes": [
       "Néroli",
@@ -75,7 +75,7 @@ const products = [
     "inspired": "Delina Exclusif — Parfums de Marly",
     "category": "feminino",
     "price": 65,
-    "image": "assets/perfumes/delina-exclusif.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.50370.jpg",
     "official": "https://parfums-de-marly.com/products/delina-exclusif",
     "notes": [
       "Lichia",
@@ -117,7 +117,7 @@ const products = [
     "inspired": "Oriana — Parfums de Marly",
     "category": "feminino",
     "price": 65,
-    "image": "assets/perfumes/oriana.webp",
+    "image": "oriana.png",
     "official": "https://parfums-de-marly.com/products/oriana",
     "notes": [
       "Mandarina",
@@ -138,7 +138,7 @@ const products = [
     "inspired": "Imagination — Louis Vuitton",
     "category": "masculino",
     "price": 65,
-    "image": "assets/perfumes/imagination.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.67370.jpg",
     "official": "https://br.louisvuitton.com/por-br/produtos/imagination-nvprod2970067v/LP0219",
     "notes": [
       "Cidra",
@@ -159,7 +159,7 @@ const products = [
     "inspired": "La Bomba — Carolina Herrera",
     "category": "feminino",
     "price": 65,
-    "image": "assets/perfumes/la-bomba.webp",
+    "image": "la-bomba.png",
     "official": "https://www.carolinaherrera.com/",
     "notes": [
       "Pitaya",
@@ -180,7 +180,7 @@ const products = [
     "inspired": "La Vie Est Belle — Lancôme",
     "category": "feminino",
     "price": 65,
-    "image": "assets/perfumes/la-vie-est-belle.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.14982.jpg",
     "official": "https://www.lancome.com.br/la-vie-est-belle",
     "notes": [
       "Íris",
@@ -201,7 +201,7 @@ const products = [
     "inspired": "Erba Pura — Xerjoff",
     "category": "compartilhavel",
     "price": 65,
-    "image": "assets/perfumes/erba-pura.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.55157.jpg",
     "official": "https://www.xerjoff.com/products/erba-pura-eau-de-parfum",
     "notes": [
       "Laranja",
@@ -222,7 +222,7 @@ const products = [
     "inspired": "J'adore — Dior",
     "category": "feminino",
     "price": 65,
-    "image": "assets/perfumes/j-adore.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.210.jpg",
     "official": "https://www.dior.com/pt_br/beauty/products/jadore-eau-de-parfum",
     "notes": [
       "Ylang-ylang",
@@ -243,7 +243,7 @@ const products = [
     "inspired": "Delina La Rosée — Parfums de Marly",
     "category": "feminino",
     "price": 65,
-    "image": "assets/perfumes/delina-la-rose.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.64667.jpg",
     "official": "https://parfums-de-marly.com/products/delina-la-rosee",
     "notes": [
       "Lichia",
@@ -264,7 +264,7 @@ const products = [
     "inspired": "My Way — Giorgio Armani",
     "category": "feminino",
     "price": 65,
-    "image": "assets/perfumes/my-way.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.62036.jpg",
     "official": "https://www.giorgioarmanibeauty-usa.com/fragrances/womens-perfume/my-way/",
     "notes": [
       "Flor de laranjeira",
@@ -285,7 +285,7 @@ const products = [
     "inspired": "Lost Cherry — Tom Ford",
     "category": "compartilhavel",
     "price": 65,
-    "image": "assets/perfumes/lost-cherry.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.51411.jpg",
     "official": "https://www.tomfordbeauty.com/product/lost-cherry-eau-de-parfum",
     "notes": [
       "Cereja",
@@ -306,7 +306,7 @@ const products = [
     "inspired": "Coco Mademoiselle — Chanel",
     "category": "feminino",
     "price": 65,
-    "image": "assets/perfumes/coco-mademoiselle.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.611.jpg",
     "official": "https://www.chanel.com/br/perfumes/p/116520/coco-mademoiselle-eau-de-parfum-spray/",
     "notes": [
       "Laranja",
@@ -327,7 +327,7 @@ const products = [
     "inspired": "L'Eau d'Issey — Issey Miyake",
     "category": "feminino",
     "price": 65,
-    "image": "assets/perfumes/l-eau-d-issey.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.720.jpg",
     "official": "https://www.isseymiyakeparfums.com/",
     "notes": [
       "Lótus",
@@ -348,7 +348,7 @@ const products = [
     "inspired": "Aventus — Creed",
     "category": "masculino",
     "price": 65,
-    "image": "assets/perfumes/aventus.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.9828.jpg",
     "official": "https://creedboutique.com/products/aventus",
     "notes": [
       "Abacaxi",
@@ -369,7 +369,7 @@ const products = [
     "inspired": "Thé Noir 29 — Le Labo",
     "category": "compartilhavel",
     "price": 65,
-    "image": "assets/perfumes/th-noir-29.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.31872.jpg",
     "official": "https://www.lelabofragrances.com/the-noir-29-148.html",
     "notes": [
       "Bergamota",
@@ -390,7 +390,7 @@ const products = [
     "inspired": "Acqua di Giò — Giorgio Armani",
     "category": "masculino",
     "price": 65,
-    "image": "assets/perfumes/acqua-di-gi.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.410.jpg",
     "official": "https://www.giorgioarmanibeauty-usa.com/fragrances/mens-cologne/acqua-di-gio/",
     "notes": [
       "Notas marinhas",
@@ -411,7 +411,7 @@ const products = [
     "inspired": "Hacivat — Nishane",
     "category": "compartilhavel",
     "price": 65,
-    "image": "assets/perfumes/hacivat.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.44174.jpg",
     "official": "https://nishane.com/product/hacivat/",
     "notes": [
       "Abacaxi",
@@ -432,7 +432,7 @@ const products = [
     "inspired": "Allure Homme Sport — Chanel",
     "category": "masculino",
     "price": 65,
-    "image": "assets/perfumes/allure-homme-sport.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.607.jpg",
     "official": "https://www.chanel.com/br/perfumes/p/123630/allure-homme-sport-eau-de-toilette-spray/",
     "notes": [
       "Mandarina",
@@ -453,7 +453,7 @@ const products = [
     "inspired": "L'Eau d'Issey Pour Homme — Issey Miyake",
     "category": "masculino",
     "price": 65,
-    "image": "assets/perfumes/l-eau-d-issey-pour-homme.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.721.jpg",
     "official": "https://www.isseymiyakeparfums.com/",
     "notes": [
       "Yuzu",
@@ -474,7 +474,7 @@ const products = [
     "inspired": "Bleu de Chanel — Chanel",
     "category": "masculino",
     "price": 65,
-    "image": "assets/perfumes/bleu-de-chanel.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.9099.jpg",
     "official": "https://www.chanel.com/br/perfumes/p/107360/bleu-de-chanel-eau-de-parfum-spray/",
     "notes": [
       "Toranja",
@@ -495,7 +495,7 @@ const products = [
     "inspired": "Sauvage — Dior",
     "category": "masculino",
     "price": 65,
-    "image": "assets/perfumes/sauvage.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.31861.jpg",
     "official": "https://www.dior.com/pt_br/beauty/products/sauvage-eau-de-parfum",
     "notes": [
       "Bergamota",
@@ -516,7 +516,7 @@ const products = [
     "inspired": "Stallion Leather — Carolina Herrera",
     "category": "masculino",
     "price": 65,
-    "image": "assets/perfumes/stallion-leather.webp",
+    "image": "stallion-leather.png",
     "official": "https://www.carolinaherrera.com/",
     "notes": [
       "Couro",
@@ -537,7 +537,7 @@ const products = [
     "inspired": "Black Orchid — Tom Ford",
     "category": "compartilhavel",
     "price": 65,
-    "image": "assets/perfumes/black-orchid.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.1018.jpg",
     "official": "https://www.tomfordbeauty.com/product/black-orchid-eau-de-parfum",
     "notes": [
       "Trufa",
@@ -558,7 +558,7 @@ const products = [
     "inspired": "Carmina — Creed",
     "category": "feminino",
     "price": 65,
-    "image": "assets/perfumes/carmina.webp",
+    "image": "carmina.png",
     "official": "https://creedboutique.com/products/carmina",
     "notes": [
       "Cereja negra",
@@ -579,7 +579,7 @@ const products = [
     "inspired": "Oud Maracujá — Maison Crivelli",
     "category": "compartilhavel",
     "price": 65,
-    "image": "assets/perfumes/oud-maracuj.webp",
+    "image": "oud-maracuja.png",
     "official": "https://maisoncrivelli.com/products/oud-maracuja",
     "notes": [
       "Maracujá",
@@ -600,7 +600,7 @@ const products = [
     "inspired": "Guidance — Amouage",
     "category": "compartilhavel",
     "price": 65,
-    "image": "assets/perfumes/guidance.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.78656.jpg",
     "official": "https://amouage.com/products/guidance",
     "notes": [
       "Pera",
@@ -621,7 +621,7 @@ const products = [
     "inspired": "By the Fireplace — Maison Margiela — Replica",
     "category": "compartilhavel",
     "price": 65,
-    "image": "assets/perfumes/by-the-fireplace.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.31623.jpg",
     "official": "https://www.maisonmargiela-fragrances.us/fragrances/replica/replica-by-the-fireplace.html",
     "notes": [
       "Castanha",
@@ -642,7 +642,7 @@ const products = [
     "inspired": "Bvlgari Man Wood Essence — Bvlgari",
     "category": "masculino",
     "price": 65,
-    "image": "assets/perfumes/bvlgari-man-wood-essence.webp",
+    "image": "bvlgari-man-wood-essence.png",
     "official": "https://www.bulgari.com/",
     "notes": [
       "Cítricos",
@@ -663,7 +663,7 @@ const products = [
     "inspired": "Bvlgari Black — Bvlgari",
     "category": "compartilhavel",
     "price": 65,
-    "image": "assets/perfumes/bvlgari-black.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.154.jpg",
     "official": "https://www.bulgari.com/",
     "notes": [
       "Chá preto",
@@ -684,7 +684,7 @@ const products = [
     "inspired": "Terre d'Hermès — Hermès",
     "category": "masculino",
     "price": 65,
-    "image": "assets/perfumes/terre-d-herms.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.17.jpg",
     "official": "https://www.hermes.com/us/en/product/terre-d-hermes-eau-de-toilette-V107188V0/",
     "notes": [
       "Laranja",
@@ -705,7 +705,7 @@ const products = [
     "inspired": "Vibrato — Sospiro",
     "category": "compartilhavel",
     "price": 65,
-    "image": "assets/perfumes/vibrato.webp",
+    "image": "vibrato.png",
     "official": "https://sospirointernational.com/",
     "notes": [
       "Toranja",
@@ -726,7 +726,7 @@ const products = [
     "inspired": "Bleu L'Exclusif — Chanel",
     "category": "masculino",
     "price": 65,
-    "image": "assets/perfumes/bleu-l-exclusif.webp",
+    "image": "bleu-lexclusif.png",
     "official": "https://www.chanel.com/",
     "notes": [
       "Madeiras aromáticas",
@@ -747,7 +747,7 @@ const products = [
     "inspired": "Reflection 45 — Amouage",
     "category": "masculino",
     "price": 65,
-    "image": "assets/perfumes/reflection-45.webp",
+    "image": "reflection-45.png",
     "official": "https://amouage.com/products/reflection-45-man",
     "notes": [
       "Lavanda",
@@ -768,7 +768,7 @@ const products = [
     "inspired": "Bal d'Afrique — Byredo",
     "category": "compartilhavel",
     "price": 65,
-    "image": "assets/perfumes/bal-d-afrique.webp",
+    "image": "https://fimgs.net/mdimg/perfume/375x500.6458.jpg",
     "official": "https://www.byredo.com/us_en/p/bal-d-afrique-eau-de-parfum",
     "notes": [
       "Bergamota",
@@ -801,7 +801,7 @@ function renderProducts(){
     <article class="product-card">
       <button class="favorite-button ${favorites.includes(p.id)?'active':''}" onclick="event.stopPropagation();toggleFavorite(${p.id})" aria-label="Favoritar ${p.name}">${favorites.includes(p.id)?'♥':'♡'}</button>
       <button class="product-image" onclick="openProduct(${p.id})" aria-label="Ver detalhes de ${p.name}">
-        <img src="${p.image}" alt="Frasco original ${p.inspired}, exibido como referência" loading="lazy" onerror="this.onerror=null;this.src='fallback-perfume.png'">
+        <img src="${p.image}" alt="Frasco original ${p.inspired}, exibido como referência" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=700&q=80'">
         <span class="product-badge">${categoryLabel(p.category)}</span>
       </button>
       <div class="product-info">
@@ -833,7 +833,7 @@ function renderCart(){
   const totals=getCartTotals();
   $("#cartCount").textContent=totals.count;$("#mobileCartCount").textContent=totals.count;
   $("#cartEmpty").style.display=cart.length?"none":"block";$("#cartItems").style.display=cart.length?"block":"none";
-  $("#cartItems").innerHTML=cart.map(i=>{const p=products.find(x=>x.id===i.id);return `<div class="cart-item"><img src="${p.image}" alt="" onerror="this.onerror=null;this.src='fallback-perfume.png'"><div><h4>${p.name}</h4><p>50 ml · ${money(totals.unitPrice)} cada${totals.promoActive?' · preço promocional':''}</p><div class="quantity"><button onclick="changeQty(${p.id},-1)">−</button><span>${i.qty}</span><button onclick="changeQty(${p.id},1)">+</button></div></div><button class="remove" onclick="removeItem(${p.id})">Remover</button></div>`}).join("");
+  $("#cartItems").innerHTML=cart.map(i=>{const p=products.find(x=>x.id===i.id);return `<div class="cart-item"><img src="${p.image}" alt=""><div><h4>${p.name}</h4><p>50 ml · ${money(totals.unitPrice)} cada${totals.promoActive?' · preço promocional':''}</p><div class="quantity"><button onclick="changeQty(${p.id},-1)">−</button><span>${i.qty}</span><button onclick="changeQty(${p.id},1)">+</button></div></div><button class="remove" onclick="removeItem(${p.id})">Remover</button></div>`}).join("");
   const progress=$("#discountProgress");
   if(!totals.count){progress.innerHTML='<strong>Oferta AP Reserve</strong><span>Adicione 3 perfumes e pague R$ 60,00 em cada um.</span>';progress.className='discount-progress';}
   else if(totals.promoActive){progress.innerHTML=`<strong>✓ Desconto aplicado</strong><span>${totals.count} perfumes por ${money(PROMO_PRICE)} cada.</span>`;progress.className='discount-progress active';}
@@ -849,7 +849,7 @@ function openCart(){closeModal();$("#cartDrawer").classList.add("open");$("#over
 function closeCart(){$("#cartDrawer").classList.remove("open");$("#overlay").classList.remove("active");document.body.classList.remove("locked")}
 function openProduct(id){
   currentProduct=products.find(p=>p.id===id);const p=currentProduct;
-  $("#modalImage").onerror=function(){this.onerror=null;this.src="fallback-perfume.png"};$("#modalImage").src=p.image;$("#modalName").textContent=p.name;$("#modalInspired").textContent=p.inspired;$("#modalCategory").textContent=categoryLabel(p.category);$("#modalDescription").textContent=p.description;$("#modalNotes").innerHTML=p.notes.map(n=>`<span>${n}</span>`).join("");$("#modalPrice").textContent=money(p.price);$("#officialLink").href=p.official;
+  $("#modalImage").src=p.image;$("#modalName").textContent=p.name;$("#modalInspired").textContent=p.inspired;$("#modalCategory").textContent=categoryLabel(p.category);$("#modalDescription").textContent=p.description;$("#modalNotes").innerHTML=p.notes.map(n=>`<span>${n}</span>`).join("");$("#modalPrice").textContent=money(p.price);$("#officialLink").href=p.official;
   $("#modalOccasion").textContent=p.occasion;$("#modalSeason").textContent=p.season;$("#modalPerformance").textContent=p.performance;
   $("#productModal").classList.add("open");$("#overlay").classList.add("active");document.body.classList.add("locked")
 }
