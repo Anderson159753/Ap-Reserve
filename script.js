@@ -1,5 +1,8 @@
 const WHATSAPP_NUMBER = "5519981213385";
 const STORE_NAME = "AP Reserve";
+const REGULAR_PRICE = 65;
+const PROMO_PRICE = 60;
+const PROMO_MIN_QTY = 3;
 
 const products = [
   {
@@ -818,12 +821,30 @@ function addToCart(id){const existing=cart.find(i=>i.id===id);existing?existing.
 function changeQty(id,delta){const item=cart.find(i=>i.id===id);if(!item)return;item.qty+=delta;if(item.qty<=0)cart=cart.filter(i=>i.id!==id);saveCart()}
 function removeItem(id){cart=cart.filter(i=>i.id!==id);saveCart()}
 function saveCart(){localStorage.setItem("apReserveCart",JSON.stringify(cart));renderCart()}
-function renderCart(){
-  const count=cart.reduce((a,i)=>a+i.qty,0);$("#cartCount").textContent=count;$("#mobileCartCount").textContent=count;
-  $("#cartEmpty").style.display=cart.length?"none":"block";$("#cartItems").style.display=cart.length?"block":"none";
-  $("#cartItems").innerHTML=cart.map(i=>{const p=products.find(x=>x.id===i.id);return `<div class="cart-item"><img src="${p.image}" alt=""><div><h4>${p.name}</h4><p>50 ml · ${money(p.price)}</p><div class="quantity"><button onclick="changeQty(${p.id},-1)">−</button><span>${i.qty}</span><button onclick="changeQty(${p.id},1)">+</button></div></div><button class="remove" onclick="removeItem(${p.id})">Remover</button></div>`}).join("");
-  $("#cartTotal").textContent=money(cart.reduce((a,i)=>a+products.find(p=>p.id===i.id).price*i.qty,0));
+function getCartTotals(){
+  const count = cart.reduce((sum,item)=>sum+item.qty,0);
+  const promoActive = count >= PROMO_MIN_QTY;
+  const unitPrice = promoActive ? PROMO_PRICE : REGULAR_PRICE;
+  const originalTotal = count * REGULAR_PRICE;
+  const total = count * unitPrice;
+  return {count,promoActive,unitPrice,originalTotal,total,savings:originalTotal-total};
 }
+function renderCart(){
+  const totals=getCartTotals();
+  $("#cartCount").textContent=totals.count;$("#mobileCartCount").textContent=totals.count;
+  $("#cartEmpty").style.display=cart.length?"none":"block";$("#cartItems").style.display=cart.length?"block":"none";
+  $("#cartItems").innerHTML=cart.map(i=>{const p=products.find(x=>x.id===i.id);return `<div class="cart-item"><img src="${p.image}" alt=""><div><h4>${p.name}</h4><p>50 ml · ${money(totals.unitPrice)} cada${totals.promoActive?' · preço promocional':''}</p><div class="quantity"><button onclick="changeQty(${p.id},-1)">−</button><span>${i.qty}</span><button onclick="changeQty(${p.id},1)">+</button></div></div><button class="remove" onclick="removeItem(${p.id})">Remover</button></div>`}).join("");
+  const progress=$("#discountProgress");
+  if(!totals.count){progress.innerHTML='<strong>Oferta AP Reserve</strong><span>Adicione 3 perfumes e pague R$ 60,00 em cada um.</span>';progress.className='discount-progress';}
+  else if(totals.promoActive){progress.innerHTML=`<strong>✓ Desconto aplicado</strong><span>${totals.count} perfumes por ${money(PROMO_PRICE)} cada.</span>`;progress.className='discount-progress active';}
+  else {const missing=PROMO_MIN_QTY-totals.count;progress.innerHTML=`<strong>Falta ${missing} ${missing===1?'perfume':'perfumes'}</strong><span>Adicione ${missing===1?'mais um':'mais '+missing} e todos saem por ${money(PROMO_PRICE)} cada.</span>`;progress.className='discount-progress pending';}
+  $("#cartOriginalTotal").textContent=money(totals.originalTotal);
+  $("#cartSavings").textContent=money(totals.savings);
+  $("#cartTotal").textContent=money(totals.total);
+  $("#originalTotalRow").style.display=totals.promoActive?'flex':'none';
+  $("#savingsRow").style.display=totals.promoActive?'flex':'none';
+}
+
 function openCart(){closeModal();$("#cartDrawer").classList.add("open");$("#overlay").classList.add("active");document.body.classList.add("locked")}
 function closeCart(){$("#cartDrawer").classList.remove("open");$("#overlay").classList.remove("active");document.body.classList.remove("locked")}
 function openProduct(id){
@@ -835,11 +856,13 @@ function openProduct(id){
 function closeModal(){$("#productModal").classList.remove("open");if(!$("#cartDrawer").classList.contains("open")){$("#overlay").classList.remove("active");document.body.classList.remove("locked")}}
 function checkout(){
   if(!cart.length){alert("Seu carrinho está vazio.");return}
-  const lines=cart.map(i=>{const p=products.find(x=>x.id===i.id);return `• ${i.qty}x ${p.name} — 50 ml (${money(p.price*i.qty)})\n  Inspiração em ${p.brand}`});
-  const total=cart.reduce((a,i)=>a+products.find(p=>p.id===i.id).price*i.qty,0);
-  const msg=`Olá! Gostaria de fazer o seguinte pedido na ${STORE_NAME}:\n\n${lines.join("\n\n")}\n\n*Total: ${money(total)}*\n\nNome:\nTelefone:\nForma de entrega/retirada:`;
+  const totals=getCartTotals();
+  const lines=cart.map(i=>{const p=products.find(x=>x.id===i.id);return `• ${i.qty}x ${p.name} — 50 ml (${money(totals.unitPrice*i.qty)})\n  Inspiração em ${p.brand}`});
+  const promoText=totals.promoActive?`\n\n*Desconto AP Reserve aplicado:* ${totals.count} perfumes por ${money(PROMO_PRICE)} cada.\n*Economia:* ${money(totals.savings)}`:'';
+  const msg=`Olá! Gostaria de fazer o seguinte pedido na ${STORE_NAME}:\n\n${lines.join("\n\n")}${promoText}\n\n*Total: ${money(totals.total)}*\n\nNome:\nTelefone:\nForma de entrega/retirada:`;
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,"_blank");
 }
+
 function showToast(){$("#toast").classList.add("show");setTimeout(()=>$("#toast").classList.remove("show"),1800)}
 
 document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");currentFilter=btn.dataset.filter;renderProducts()}));

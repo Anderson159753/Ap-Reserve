@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="announcement">Perfumes inspirados nas fragrâncias mais desejadas da perfumaria internacional.</div>
+  <div class="announcement"><strong>Oferta especial:</strong> comprando 3 ou mais perfumes, cada um sai por <strong>R$ 60,00</strong>.</div>
 
   <header class="header">
     <a class="brand" href="#inicio" aria-label="AP Reserve">
@@ -40,7 +40,7 @@
         <div class="hero-points">
           <span>✦ Frascos de 50 ml</span>
           <span>✦ Produção artesanal</span>
-          <span>✦ Pedido pelo WhatsApp</span>
+          <span>✦ 3 ou mais por R$ 60 cada</span>
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
@@ -50,6 +50,17 @@
         <div class="floating-note note-two">Madeiras</div>
         <div class="floating-note note-three">Flores</div>
       </div>
+    </section>
+
+    <section class="promo-strip" aria-label="Promoção AP Reserve">
+      <div class="promo-ornament" aria-hidden="true">✦</div>
+      <div class="promo-copy">
+        <span class="promo-kicker">Oferta Collection Privée</span>
+        <h2>Leve 3 ou mais</h2>
+        <p>e pague somente <strong>R$ 60,00 em cada fragrância</strong></p>
+        <small>O desconto é aplicado automaticamente no carrinho.</small>
+      </div>
+      <a class="promo-button" href="#catalogo">Montar minha coleção</a>
     </section>
 
     <section class="notice">
@@ -97,7 +108,8 @@
       <h2>Dúvidas frequentes</h2>
       <details><summary>Os perfumes são originais?</summary><p>Não. São perfumes inspirados em fragrâncias conhecidas. Os nomes das marcas e perfumes originais aparecem somente como referência olfativa.</p></details>
       <details><summary>Qual é o tamanho do frasco?</summary><p>Os perfumes do catálogo estão configurados em frascos de 50 ml. O tamanho e o preço podem ser alterados facilmente no arquivo de produtos.</p></details>
-      <details><summary>Como concluo o pedido?</summary><p>Ao finalizar o carrinho, o site abre uma conversa no WhatsApp com todos os itens, quantidades e valor total já preenchidos.</p></details>
+      <details><summary>Como funciona o desconto?</summary><p>Ao colocar 3 ou mais perfumes no carrinho, o preço de todos eles muda automaticamente de R$ 65,00 para R$ 60,00 cada.</p></details>
+      <details><summary>Como concluo o pedido?</summary><p>Ao finalizar o carrinho, o site abre uma conversa no WhatsApp com todos os itens, quantidades, desconto e valor total já preenchidos.</p></details>
       <details><summary>A fixação é igual ao perfume original?</summary><p>Desempenho e evolução variam conforme pele, clima, lote e matérias-primas. A proposta é oferecer uma experiência olfativa inspirada, não uma reprodução oficial.</p></details>
     </section>
   </main>
@@ -115,6 +127,9 @@
     <div class="cart-items" id="cartItems"></div>
     <div class="cart-empty" id="cartEmpty"><span>◇</span><h3>Seu carrinho está vazio</h3><p>Escolha uma fragrância para começar.</p></div>
     <div class="cart-footer">
+      <div class="discount-progress" id="discountProgress"></div>
+      <div class="cart-summary-row original-total" id="originalTotalRow"><span>Valor normal</span><strong id="cartOriginalTotal">R$ 0,00</strong></div>
+      <div class="cart-summary-row savings" id="savingsRow"><span>Você economiza</span><strong id="cartSavings">R$ 0,00</strong></div>
       <div class="subtotal"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div>
       <button class="whatsapp-button" id="checkoutButton">Concluir pelo WhatsApp</button>
       <small>Você poderá revisar a mensagem antes de enviar.</small>
