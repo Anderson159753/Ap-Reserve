@@ -279,3 +279,39 @@
     z-index: 80;
   }
 }
+
+/* Correção definitiva Safari/iPhone: botão do detalhe sempre no fluxo do conteúdo */
+@media (max-width: 760px) {
+  #productModal #modalBuy,
+  .modal #modalBuy,
+  .modal .primary-button.full {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    float: none !important;
+    clear: both !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 54px !important;
+    margin: 22px 0 0 !important;
+    z-index: 1 !important;
+    box-shadow: none !important;
+  }
+
+  #productModal .modal-content {
+    display: block !important;
+    overflow: visible !important;
+    padding-bottom: calc(36px + env(safe-area-inset-bottom)) !important;
+  }
+
+  #productModal .modal-price {
+    position: relative !important;
+    z-index: 1 !important;
+    margin: 30px 0 0 !important;
+  }
+}
