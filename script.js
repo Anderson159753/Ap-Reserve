@@ -796,7 +796,7 @@ const categoryLabel = c => c === "compartilhavel" ? "Compartilhável" : c[0].toU
 
 function renderProducts(){
   const term = $("#searchInput").value.trim().toLowerCase();
-  const visible = products.filter(p => (currentFilter === "todos" || p.category === currentFilter) && `${p.name} ${p.brand} ${p.short} ${p.description} ${p.notes.join(" ")}`.toLowerCase().includes(term));
+  const visible = products.filter(p => (currentFilter === "todos" || (currentFilter === "favoritos" ? favorites.includes(p.id) : p.category === currentFilter)) && `${p.name} ${p.brand} ${p.short} ${p.description} ${p.notes.join(" ")}`.toLowerCase().includes(term));
   grid.innerHTML = visible.map(p => `
     <article class="product-card">
       <button class="favorite-button ${favorites.includes(p.id)?'active':''}" onclick="event.stopPropagation();toggleFavorite(${p.id})" aria-label="Favoritar ${p.name}">${favorites.includes(p.id)?'♥':'♡'}</button>
@@ -831,7 +831,7 @@ function getCartTotals(){
 }
 function renderCart(){
   const totals=getCartTotals();
-  $("#cartCount").textContent=totals.count;$("#mobileCartCount").textContent=totals.count;
+  $("#cartCount").textContent=totals.count;$("#mobileCartCount").textContent=totals.count;const bc=$("#bottomCartCount");if(bc)bc.textContent=totals.count;
   $("#cartEmpty").style.display=cart.length?"none":"block";$("#cartItems").style.display=cart.length?"block":"none";
   $("#cartItems").innerHTML=cart.map(i=>{const p=products.find(x=>x.id===i.id);return `<div class="cart-item"><img src="${p.image}" alt=""><div><h4>${p.name}</h4><p>50 ml · ${money(totals.unitPrice)} cada${totals.promoActive?' · preço promocional':''}</p><div class="quantity"><button onclick="changeQty(${p.id},-1)">−</button><span>${i.qty}</span><button onclick="changeQty(${p.id},1)">+</button></div></div><button class="remove" onclick="removeItem(${p.id})">Remover</button></div>`}).join("");
   const progress=$("#discountProgress");
@@ -866,6 +866,14 @@ function checkout(){
 function showToast(){$("#toast").classList.add("show");setTimeout(()=>$("#toast").classList.remove("show"),1800)}
 
 document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");currentFilter=btn.dataset.filter;renderProducts()}));
-$("#searchInput").addEventListener("input",renderProducts);$("#openCart").onclick=openCart;$("#mobileCart").onclick=openCart;$("#heroCart").onclick=openCart;$("#closeCart").onclick=closeCart;$("#closeModal").onclick=closeModal;$("#overlay").onclick=()=>{closeCart();closeModal()};$("#checkoutButton").onclick=checkout;$("#modalBuy").onclick=()=>{if(currentProduct){addToCart(currentProduct.id);closeModal();openCart()}};$("#year").textContent=new Date().getFullYear();
+$("#searchInput").addEventListener("input",renderProducts);$("#openCart").onclick=openCart;$("#mobileCart").onclick=openCart;$("#heroCart").onclick=openCart;$("#closeCart").onclick=closeCart;$("#closeModal").onclick=closeModal;$("#overlay").onclick=()=>{closeCart();closeModal();closeMenu()};$("#checkoutButton").onclick=checkout;$("#modalBuy").onclick=()=>{if(currentProduct){addToCart(currentProduct.id);closeModal();openCart()}};
+const mobileMenu=$("#mobileMenu");
+function openMenu(){mobileMenu.classList.add("open");mobileMenu.setAttribute("aria-hidden","false");$("#overlay").classList.add("active");document.body.classList.add("locked");$("#openMenu").setAttribute("aria-expanded","true")}
+function closeMenu(){if(!mobileMenu)return;mobileMenu.classList.remove("open");mobileMenu.setAttribute("aria-hidden","true");$("#openMenu").setAttribute("aria-expanded","false");if(!$("#cartDrawer").classList.contains("open")&&!$("#productModal").classList.contains("open")){$("#overlay").classList.remove("active");document.body.classList.remove("locked")}}
+$("#openMenu").onclick=openMenu;$("#closeMenu").onclick=closeMenu;document.querySelectorAll(".mobile-menu-links a").forEach(a=>a.addEventListener("click",closeMenu));
+$("#bottomCart").onclick=openCart;
+$("#bottomFavorites").onclick=()=>{document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b.dataset.filter==="favoritos"));currentFilter="favoritos";renderProducts();document.querySelector("#catalogo").scrollIntoView({behavior:"smooth"})};
+$(".header").addEventListener("click",e=>{if(window.innerWidth<=760&&e.target===$(".header"))openCart()});
+$("#year").textContent=new Date().getFullYear();
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeCart();closeModal()}});
 renderProducts();renderCart();

@@ -14,6 +14,7 @@
   <div class="announcement"><strong>Oferta especial:</strong> comprando 3 ou mais perfumes, cada um sai por <strong>R$ 60,00</strong>.</div>
 
   <header class="header">
+    <button class="menu-button" id="openMenu" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <a class="brand" href="#inicio" aria-label="AP Reserve">
       <img class="brand-logo" src="logo-ap-reserve.png" alt="AP Reserve — Collection Privée">
     </a>
@@ -85,6 +86,7 @@
         <button class="filter" data-filter="masculino">Masculinos</button>
         <button class="filter" data-filter="feminino">Femininos</button>
         <button class="filter" data-filter="compartilhavel">Compartilháveis</button>
+        <button class="filter" data-filter="favoritos">Favoritos</button>
       </div>
 
       <div class="product-grid" id="productGrid"></div>
@@ -119,6 +121,28 @@
     <p>Perfumes inspirados. Todas as marcas citadas pertencem aos seus respectivos proprietários.</p>
     <p>© <span id="year"></span> AP Reserve.</p>
   </footer>
+
+
+  <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-head">
+      <img src="logo-ap-reserve.png" alt="AP Reserve">
+      <button class="icon-button" id="closeMenu" aria-label="Fechar menu">×</button>
+    </div>
+    <nav class="mobile-menu-links">
+      <a href="#inicio">Início</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#sobre">Sobre a AP Reserve</a>
+      <a href="#duvidas">Dúvidas frequentes</a>
+    </nav>
+    <p>Perfumes inspirados em grandes referências da perfumaria internacional.</p>
+  </aside>
+
+  <nav class="bottom-nav" aria-label="Navegação mobile">
+    <a href="#inicio" data-nav="inicio"><span>⌂</span><small>Início</small></a>
+    <a href="#catalogo" data-nav="catalogo"><span>◇</span><small>Catálogo</small></a>
+    <button id="bottomFavorites" type="button"><span>♡</span><small>Favoritos</small></button>
+    <button id="bottomCart" type="button"><span>🛒</span><small>Carrinho</small><b id="bottomCartCount">0</b></button>
+  </nav>
 
   <div class="overlay" id="overlay"></div>
 
