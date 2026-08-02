@@ -1,12 +1,161 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>AP Reserve | Perfumes inspirados</title><meta name="description" content="AP Reserve Collection Privée: perfumes inspirados em ícones da perfumaria. Frascos de 50 ml e preço especial a partir de 3 unidades."><meta name="theme-color" content="#070707"><meta property="og:title" content="AP Reserve — Collection Privée"><meta property="og:description" content="Perfumes inspirados, preparados artesanalmente. Leve 3 ou mais por R$ 60 cada."><meta property="og:image" content="assets/logo-ap-reserve.png"><meta property="og:type" content="website"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link rel="stylesheet" href="styles.css"></head><body>
-<div class="promo-top">✨ Leve <b>3 ou mais</b> e pague <b>R$ 60 em cada</b></div>
-<header><button class="icon-btn" id="menuBtn" aria-label="Menu">☰</button><a href="#inicio"><img src="assets/logo-ap-reserve.png" alt="AP Reserve"></a><nav><a href="#catalogo">Catálogo</a><a href="#sobre">Sobre</a><button id="favNav">Favoritos</button><button id="compareNav">Comparar <span id="compareCount">0</span></button></nav><button class="cart-btn" id="openCart">Sacola <span id="cartCount">0</span></button></header>
-<main><section class="hero" id="inicio"><div class="hero-bg"></div><div class="hero-copy glass"><img src="assets/logo-ap-reserve.png" alt=""><span class="eyebrow">COLLECTION PRIVÉE</span><h1>Uma assinatura<br><em>que permanece.</em></h1><p>Perfumes inspirados nas fragrâncias mais desejadas do mundo, preparados artesanalmente para marcar presença.</p><div class="hero-actions"><a href="#catalogo" class="btn gold">Conhecer coleção</a><button class="btn ghost" id="installBtn" hidden>Instalar aplicativo</button></div><div class="hero-badges"><span>50 ml</span><span>Produção artesanal</span><span>3+ por R$ 60</span></div></div><div class="hero-product"><img src="assets/hero-perfume.webp" alt="Apresentação AP Reserve"></div></section>
-<section class="lux-promo"><div><small>OFERTA COLLECTION PRIVÉE</small><h2>Monte sua coleção.</h2><p>Ao adicionar <b>3 ou mais perfumes</b>, o valor muda automaticamente para <strong>R$ 60,00 cada</strong>.</p></div><a href="#catalogo" class="btn gold">Aproveitar agora</a></section>
-<section class="catalog" id="catalogo"><div class="section-head"><div><small>CURADORIA AP RESERVE</small><h2>Encontre sua próxima assinatura</h2></div><label class="search glass">⌕<input id="search" placeholder="Nome, marca, nota ou estilo"></label></div><div class="filters" id="filters"><button class="active" data-filter="todos">Todos</button><button data-filter="feminino">Femininos</button><button data-filter="masculino">Masculinos</button><button data-filter="compartilhavel">Compartilháveis</button><button data-filter="favoritos">♡ Favoritos</button></div><div class="grid" id="grid"></div><p id="empty" class="empty">Nenhuma fragrância encontrada.</p></section>
-<section class="about" id="sobre"><div><small>A EXPERIÊNCIA AP RESERVE</small><h2>Luxo é memória,<br>presença e identidade.</h2></div><div class="about-cards"><article class="glass"><b>01</b><h3>Curadoria sofisticada</h3><p>Referências olfativas escolhidas entre clássicos e grandes lançamentos da perfumaria internacional.</p></article><article class="glass"><b>02</b><h3>Feito artesanalmente</h3><p>Frascos preparados em pequenos lotes, com cuidado na apresentação e experiência.</p></article><article class="glass"><b>03</b><h3>Compra sem complicação</h3><p>Escolha, compare, adicione à sacola e conclua seu pedido diretamente no WhatsApp.</p></article></div></section>
-<section class="disclaimer"><b>Transparência:</b> comercializamos perfumes inspirados. As marcas e imagens são utilizadas somente como referência olfativa; não há vínculo comercial com seus proprietários.</section></main>
-<footer><img src="assets/logo-ap-reserve.png" alt="AP Reserve"><p>Perfumes inspirados • São Pedro — SP</p><p>© <span id="year"></span> AP Reserve</p></footer>
-<div class="overlay" id="overlay"></div><aside class="drawer" id="cart"><div class="drawer-head"><div><small>SEU PEDIDO</small><h2>Sacola</h2></div><button id="closeCart">×</button></div><div id="cartItems" class="cart-items"></div><div id="cartEmpty" class="cart-empty">Sua sacola está vazia.</div><div class="cart-bottom"><div id="discountMsg" class="discount-msg"></div><div class="row muted" id="normalRow"><span>Valor normal</span><s id="normalTotal"></s></div><div class="row save" id="saveRow"><span>Economia</span><b id="saving"></b></div><div class="row total"><span>Total</span><b id="total"></b></div><button class="btn whatsapp" id="checkout">Concluir pelo WhatsApp</button></div></aside>
-<div class="modal" id="modal"><button class="modal-x" id="closeModal">×</button><div class="modal-img"><img id="modalImg" alt=""></div><div class="modal-info"><small id="modalCat"></small><h2 id="modalName"></h2><p>Inspirado em <b id="modalBrand"></b></p><p id="modalDesc"></p><div id="modalNotes" class="note-tags"></div><div class="facts"><div><small>Ocasião</small><b id="modalOcc"></b></div><div><small>Estação</small><b id="modalSeason"></b></div><div><small>Desempenho</small><b id="modalPerf"></b></div></div><div class="modal-actions"><strong>R$ 65,00 <small>ou R$ 60 no combo</small></strong><button class="btn gold" id="modalBuy">Adicionar</button></div></div></div>
-<div class="compare-panel" id="comparePanel"><div class="drawer-head"><div><small>ESCOLHA ATÉ 2</small><h2>Comparador</h2></div><button id="closeCompare">×</button></div><div id="compareContent"></div></div><div class="toast" id="toast"></div><script src="products.js"></script><script src="app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AP Reserve — perfumes inspirados em grandes sucessos da perfumaria, produzidos artesanalmente." />
+  <title>AP Reserve | Perfumes Inspirados</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="announcement"><strong>Oferta especial:</strong> comprando 3 ou mais perfumes, cada um sai por <strong>R$ 60,00</strong>.</div>
+
+  <header class="header">
+    <a class="brand" href="#inicio" aria-label="AP Reserve">
+      <img class="brand-logo" src="logo-ap-reserve.png" alt="AP Reserve — Collection Privée">
+    </a>
+    <nav>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <button class="cart-button" id="openCart" aria-label="Abrir carrinho">
+      Carrinho <span id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <span class="eyebrow">Elegância que permanece</span>
+        <h1>Sua presença,<br><em>sua assinatura.</em></h1>
+        <p>Uma curadoria de fragrâncias inspiradas em ícones da perfumaria internacional, preparadas artesanalmente para transformar presença em assinatura.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#catalogo">Conhecer fragrâncias</a>
+          <button class="secondary-button" id="heroCart">Ver meu carrinho</button>
+        </div>
+        <div class="hero-points">
+          <span>✦ Frascos de 50 ml</span>
+          <span>✦ Produção artesanal</span>
+          <span>✦ 3 ou mais por R$ 60 cada</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="glow"></div>
+        <div class="hero-bottle"><img src="logo-ap-reserve.png" alt=""></div>
+        <div class="floating-note note-one">Cítricos</div>
+        <div class="floating-note note-two">Madeiras</div>
+        <div class="floating-note note-three">Flores</div>
+      </div>
+    </section>
+
+    <section class="promo-strip" aria-label="Promoção AP Reserve">
+      <div class="promo-ornament" aria-hidden="true">✦</div>
+      <div class="promo-copy">
+        <span class="promo-kicker">Oferta Collection Privée</span>
+        <h2>Leve 3 ou mais</h2>
+        <p>e pague somente <strong>R$ 60,00 em cada fragrância</strong></p>
+        <small>O desconto é aplicado automaticamente no carrinho.</small>
+      </div>
+      <a class="promo-button" href="#catalogo">Montar minha coleção</a>
+    </section>
+
+    <section class="notice">
+      <strong>Transparência em primeiro lugar:</strong>
+      A AP Reserve comercializa perfumes inspirados. Não vendemos produtos originais das marcas citadas, não possuímos vínculo com elas e utilizamos seus nomes apenas como referência olfativa para facilitar a escolha.
+    </section>
+
+    <section class="catalog-section" id="catalogo">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Encontre sua fragrância</span>
+          <h2>Catálogo AP Reserve</h2>
+        </div>
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Buscar perfume ou referência..." />
+        </label>
+      </div>
+
+      <div class="filters" role="tablist" aria-label="Filtrar perfumes">
+        <button class="filter active" data-filter="todos">Todos</button>
+        <button class="filter" data-filter="masculino">Masculinos</button>
+        <button class="filter" data-filter="feminino">Femininos</button>
+        <button class="filter" data-filter="compartilhavel">Compartilháveis</button>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+      <p class="empty-state" id="emptyState">Nenhuma fragrância encontrada.</p>
+    </section>
+
+    <section class="about" id="sobre">
+      <div>
+        <span class="eyebrow">A experiência AP Reserve</span>
+        <h2>Perfume não é detalhe.<br>É parte da sua história.</h2>
+      </div>
+      <div class="about-grid">
+        <article><span>01</span><h3>Escolha cuidadosa</h3><p>Um catálogo inspirado em fragrâncias marcantes, das frescas e elegantes às intensas e envolventes.</p></article>
+        <article><span>02</span><h3>Produção artesanal</h3><p>Cada frasco é preparado em pequenos lotes, com atenção à concentração, apresentação e acabamento.</p></article>
+        <article><span>03</span><h3>Compra simples</h3><p>Adicione ao carrinho, confira o pedido e conclua diretamente pelo WhatsApp, sem cadastro e sem complicação.</p></article>
+      </div>
+    </section>
+
+    <section class="faq" id="duvidas">
+      <span class="eyebrow">Informações importantes</span>
+      <h2>Dúvidas frequentes</h2>
+      <details><summary>Os perfumes são originais?</summary><p>Não. São perfumes inspirados em fragrâncias conhecidas. Os nomes das marcas e perfumes originais aparecem somente como referência olfativa.</p></details>
+      <details><summary>Qual é o tamanho do frasco?</summary><p>Os perfumes do catálogo estão configurados em frascos de 50 ml. O tamanho e o preço podem ser alterados facilmente no arquivo de produtos.</p></details>
+      <details><summary>Como funciona o desconto?</summary><p>Ao colocar 3 ou mais perfumes no carrinho, o preço de todos eles muda automaticamente de R$ 65,00 para R$ 60,00 cada.</p></details>
+      <details><summary>Como concluo o pedido?</summary><p>Ao finalizar o carrinho, o site abre uma conversa no WhatsApp com todos os itens, quantidades, desconto e valor total já preenchidos.</p></details>
+      <details><summary>A fixação é igual ao perfume original?</summary><p>Desempenho e evolução variam conforme pele, clima, lote e matérias-primas. A proposta é oferecer uma experiência olfativa inspirada, não uma reprodução oficial.</p></details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand footer-brand"><img class="brand-logo" src="logo-ap-reserve.png" alt="AP Reserve — Collection Privée"></div>
+    <p>Perfumes inspirados. Todas as marcas citadas pertencem aos seus respectivos proprietários.</p>
+    <p>© <span id="year"></span> AP Reserve.</p>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer-header"><div><span class="eyebrow">Seu pedido</span><h2>Carrinho</h2></div><button class="icon-button" id="closeCart">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty"><span>◇</span><h3>Seu carrinho está vazio</h3><p>Escolha uma fragrância para começar.</p></div>
+    <div class="cart-footer">
+      <div class="discount-progress" id="discountProgress"></div>
+      <div class="cart-summary-row original-total" id="originalTotalRow"><span>Valor normal</span><strong id="cartOriginalTotal">R$ 0,00</strong></div>
+      <div class="cart-summary-row savings" id="savingsRow"><span>Você economiza</span><strong id="cartSavings">R$ 0,00</strong></div>
+      <div class="subtotal"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div>
+      <button class="whatsapp-button" id="checkoutButton">Concluir pelo WhatsApp</button>
+      <small>Você poderá revisar a mensagem antes de enviar.</small>
+    </div>
+  </aside>
+
+  <button class="mobile-cart" id="mobileCart" aria-label="Abrir carrinho"><span>Meu carrinho</span><strong><b id="mobileCartCount">0</b> itens</strong></button>
+
+  <div class="modal" id="productModal" aria-hidden="true">
+    <button class="modal-close" id="closeModal">×</button>
+    <div class="modal-image-wrap"><img id="modalImage" alt="Frasco original usado como referência olfativa"><span>Imagem da referência original</span></div>
+    <div class="modal-content">
+      <span class="category-pill" id="modalCategory"></span>
+      <h2 id="modalName"></h2>
+      <p class="inspired">Inspirado em <strong id="modalInspired"></strong></p>
+      <p id="modalDescription"></p>
+      <div class="notes"><strong>Perfil olfativo</strong><div id="modalNotes"></div></div>
+      <div class="perfume-details"><div><small>Melhor ocasião</small><strong id="modalOccasion"></strong></div><div><small>Estação</small><strong id="modalSeason"></strong></div><div><small>Desempenho</small><strong id="modalPerformance"></strong></div></div>
+      <div class="modal-price"><span>50 ml</span><strong id="modalPrice"></strong></div>
+      <button class="primary-button full" id="modalBuy">Adicionar ao carrinho</button>
+      <a id="officialLink" class="reference-link" target="_blank" rel="noopener noreferrer">Conhecer a referência original ↗</a>
+      <small class="legal-mini">A imagem e o nome original são exibidos apenas como referência. O produto vendido é AP Reserve, inspirado nessa fragrância.</small>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Produto adicionado ao carrinho.</div>
+  <script src="script.js"></script>
+</body>
+</html>
