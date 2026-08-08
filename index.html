@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles.css?v=20260802-2" />
 </head>
 <body>
-  <div class="announcement"><strong>Oferta especial:</strong> comprando 3 ou mais perfumes, cada um sai por <strong>R$ 60,00</strong>.</div>
+  <div class="announcement"><strong>Catálogo AP Reserve:</strong> as imagens dos frascos são meramente ilustrativas e exibidas apenas como referência visual.</div>
 
   <header class="header">
     <button class="menu-button" id="openMenu" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -36,12 +36,12 @@
         <p>Uma curadoria de fragrâncias inspiradas em ícones da perfumaria internacional, preparadas artesanalmente para transformar presença em assinatura.</p>
         <div class="hero-actions">
           <a class="primary-button" href="#catalogo">Conhecer fragrâncias</a>
-          <button class="secondary-button" id="heroCart">Ver meu carrinho</button>
+          <button class="secondary-button" id="heroCart">Ver catálogo</button>
         </div>
         <div class="hero-points">
           <span>✦ Frascos de 50 ml</span>
           <span>✦ Produção artesanal</span>
-          <span>✦ 3 ou mais por R$ 60 cada</span>
+          <span>✦ Imagens meramente ilustrativas</span>
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
@@ -66,7 +66,7 @@
 
     <section class="notice">
       <strong>Transparência em primeiro lugar:</strong>
-      A AP Reserve comercializa perfumes inspirados. Não vendemos produtos originais das marcas citadas, não possuímos vínculo com elas e utilizamos seus nomes apenas como referência olfativa para facilitar a escolha.
+      A AP Reserve comercializa perfumes inspirados. Não vendemos produtos originais das marcas citadas, não possuímos vínculo com elas e utilizamos seus nomes apenas como referência olfativa para facilitar a escolha. As imagens dos frascos exibidas neste catálogo são meramente ilustrativas.
     </section>
 
     <section class="catalog-section" id="catalogo">
@@ -89,8 +89,34 @@
         <button class="filter" data-filter="favoritos">Favoritos</button>
       </div>
 
+      <div class="availability-heading ready-heading">
+        <div>
+          <span class="availability-pill ready">Pronta entrega</span>
+          <h3>Disponíveis no estoque atual</h3>
+          <p>Estas são as fragrâncias que já fazem parte do catálogo atual da AP Reserve.</p>
+        </div>
+      </div>
+
       <div class="product-grid" id="productGrid"></div>
-      <p class="empty-state" id="emptyState">Nenhuma fragrância encontrada.</p>
+      <p class="empty-state" id="emptyState">Nenhuma fragrância pronta entrega encontrada.</p>
+
+      <section class="order-section" id="por-encomenda">
+        <div class="availability-heading order-heading">
+          <div>
+            <span class="availability-pill order">Disponível por encomenda</span>
+            <h3>Outras fragrâncias disponíveis</h3>
+            <p>Fragrâncias desta seção não fazem parte da pronta entrega atual e podem ser solicitadas por encomenda.</p>
+          </div>
+        </div>
+        <div class="filters order-filters" role="tablist" aria-label="Filtrar fragrâncias por encomenda">
+          <button class="order-filter active" data-order-filter="todos">Todos</button>
+          <button class="order-filter" data-order-filter="masculino">Masculinos</button>
+          <button class="order-filter" data-order-filter="feminino">Femininos</button>
+          <button class="order-filter" data-order-filter="compartilhavel">Compartilháveis</button>
+        </div>
+        <div class="order-grid" id="orderGrid"></div>
+        <p class="empty-state" id="orderEmpty">Nenhuma fragrância por encomenda encontrada.</p>
+      </section>
     </section>
 
     <section class="about" id="sobre">
@@ -101,7 +127,7 @@
       <div class="about-grid">
         <article><span>01</span><h3>Escolha cuidadosa</h3><p>Um catálogo inspirado em fragrâncias marcantes, das frescas e elegantes às intensas e envolventes.</p></article>
         <article><span>02</span><h3>Produção artesanal</h3><p>Cada frasco é preparado em pequenos lotes, com atenção à concentração, apresentação e acabamento.</p></article>
-        <article><span>03</span><h3>Compra simples</h3><p>Adicione ao carrinho, confira o pedido e conclua diretamente pelo WhatsApp, sem cadastro e sem complicação.</p></article>
+        <article><span>03</span><h3>Catálogo claro</h3><p>Explore as fragrâncias, veja as descrições e utilize os nomes e imagens somente como referência visual e olfativa.</p></article>
       </div>
     </section>
 
@@ -110,8 +136,8 @@
       <h2>Dúvidas frequentes</h2>
       <details><summary>Os perfumes são originais?</summary><p>Não. São perfumes inspirados em fragrâncias conhecidas. Os nomes das marcas e perfumes originais aparecem somente como referência olfativa.</p></details>
       <details><summary>Qual é o tamanho do frasco?</summary><p>Os perfumes do catálogo estão configurados em frascos de 50 ml. O tamanho e o preço podem ser alterados facilmente no arquivo de produtos.</p></details>
-      <details><summary>Como funciona o desconto?</summary><p>Ao colocar 3 ou mais perfumes no carrinho, o preço de todos eles muda automaticamente de R$ 65,00 para R$ 60,00 cada.</p></details>
-      <details><summary>Como concluo o pedido?</summary><p>Ao finalizar o carrinho, o site abre uma conversa no WhatsApp com todos os itens, quantidades, desconto e valor total já preenchidos.</p></details>
+      <details><summary>As imagens dos frascos são do produto original?</summary><p>Não. As imagens presentes no catálogo são meramente ilustrativas e utilizadas somente como referência visual da inspiração olfativa.</p></details>
+      <details><summary>Como devo usar este catálogo?</summary><p>Use o catálogo para conhecer as fragrâncias disponíveis, suas descrições, perfis olfativos e referências. Ele funciona como uma vitrine informativa.</p></details>
       <details><summary>A fixação é igual ao perfume original?</summary><p>Desempenho e evolução variam conforme pele, clima, lote e matérias-primas. A proposta é oferecer uma experiência olfativa inspirada, não uma reprodução oficial.</p></details>
     </section>
   </main>
@@ -164,7 +190,7 @@
 
   <div class="modal" id="productModal" aria-hidden="true">
     <button class="modal-close" id="closeModal">×</button>
-    <div class="modal-image-wrap"><img id="modalImage" alt="Frasco original usado como referência olfativa"><span>Imagem da referência original</span></div>
+    <div class="modal-image-wrap"><span class="modal-illustrative-badge">Inspiração</span><img id="modalImage" alt="Imagem meramente ilustrativa da referência olfativa"><span>Imagem meramente ilustrativa</span></div>
     <div class="modal-content">
       <span class="category-pill" id="modalCategory"></span>
       <h2 id="modalName"></h2>
@@ -172,10 +198,9 @@
       <p id="modalDescription"></p>
       <div class="notes"><strong>Perfil olfativo</strong><div id="modalNotes"></div></div>
       <div class="perfume-details"><div><small>Melhor ocasião</small><strong id="modalOccasion"></strong></div><div><small>Estação</small><strong id="modalSeason"></strong></div><div><small>Desempenho</small><strong id="modalPerformance"></strong></div></div>
-      <div class="modal-price"><span>50 ml</span><strong id="modalPrice"></strong></div>
-      <button class="primary-button full" id="modalBuy">Adicionar ao carrinho</button>
+      
       <a id="officialLink" class="reference-link" target="_blank" rel="noopener noreferrer">Conhecer a referência original ↗</a>
-      <small class="legal-mini">A imagem e o nome original são exibidos apenas como referência. O produto vendido é AP Reserve, inspirado nessa fragrância.</small>
+      <small class="legal-mini">A imagem e o nome original são exibidos apenas como referência. Este catálogo é informativo e as imagens dos frascos são meramente ilustrativas.</small>
     </div>
   </div>
 

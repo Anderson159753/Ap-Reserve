@@ -315,3 +315,102 @@
     margin: 30px 0 0 !important;
   }
 }
+
+
+/* ===== Catálogo ilustrativo AP Reserve ===== */
+.promo-strip,
+#openCart,
+#bottomCart,
+#mobileCart,
+#cartDrawer,
+#checkoutModal,
+#modalBuy,
+.modal-price,
+.cart-button {
+  display: none !important;
+}
+.hero-actions .secondary-button {
+  border-color: var(--line);
+}
+.hero-actions {
+  align-items: stretch;
+}
+.product-bottom,.price,.card-actions {display:none !important;}
+.product-image {position: relative;}
+.illustrative-badge,
+.modal-illustrative-badge {
+  position: absolute;
+  left: 12px;
+  top: 46px;
+  z-index: 3;
+  background: rgba(255,253,249,.92);
+  padding: 7px 9px;
+  border-radius: 999px;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--gold);
+  border: 1px solid rgba(184,148,79,.28);
+  font-weight: 600;
+}
+.modal-illustrative-badge {
+  left: 22px;
+  top: 20px;
+}
+.product-info {padding-bottom: 18px;}
+.product-reference::after {
+  content: " • imagem ilustrativa";
+  color: var(--muted);
+  font-weight: 500;
+}
+.notice strong {display:inline;}
+.announcement {font-size: 9px;}
+.bottom-nav {grid-template-columns: repeat(3,1fr) !important;}
+.bottom-nav a, .bottom-nav button {min-width: 0;}
+@media (max-width:760px){
+  body {padding-bottom: 74px;}
+  .product-badge {left: 8px; top: 8px;}
+  .illustrative-badge {left: 8px; top: 38px; font-size: 6.5px; padding: 5px 7px;}
+  .modal-illustrative-badge {left: 16px; top: 14px; font-size: 7px; padding: 6px 8px;}
+  .hero-actions {grid-template-columns: 1fr !important;}
+  .hero-actions .secondary-button {display:block !important;}
+}
+
+
+/* ===== Pronta entrega x Disponível por encomenda ===== */
+.availability-heading{display:flex;justify-content:space-between;align-items:end;gap:18px;margin:34px 0 18px;padding-top:5px}
+.availability-heading h3{font-family:"Cormorant Garamond",serif;font-size:34px;line-height:1;margin:9px 0 5px;color:var(--ink)}
+.availability-heading p{margin:0;color:var(--muted);font-size:10px;line-height:1.6;max-width:680px}
+.availability-pill{display:inline-flex;align-items:center;width:max-content;padding:7px 10px;border-radius:999px;font-size:7px;text-transform:uppercase;letter-spacing:.11em;font-weight:700}
+.availability-pill.ready{background:#e9f0e6;color:#516649;border:1px solid #cfdcc9}
+.availability-pill.order{background:#f3e7cf;color:#8b662b;border:1px solid #dfc58f}
+.order-section{margin-top:68px;padding-top:8px;border-top:1px solid var(--line)}
+.order-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.order-card{position:relative;min-height:170px;background:linear-gradient(180deg,#fffdfa,#f8f0e5);border:1px solid var(--line);border-radius:8px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 5px 18px rgba(43,23,21,.035)}
+.order-card .availability-pill{margin-bottom:28px}
+.order-brand{display:block;font-size:8px;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;font-weight:600;line-height:1.4}
+.order-card h4{font-family:"Cormorant Garamond",serif;font-size:27px;line-height:1;margin:7px 0 8px;color:var(--ink)}
+.order-card p{font-size:9px;line-height:1.55;color:var(--muted);margin:0}
+@media(max-width:1000px){.order-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){
+  .availability-heading{margin:25px 0 14px}
+  .availability-heading h3{font-size:29px}
+  .availability-heading p{font-size:9px}
+  .order-section{margin-top:45px}
+  .order-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .order-card{min-height:145px;padding:13px;border-radius:9px}
+  .order-card .availability-pill{margin-bottom:22px;font-size:6px;padding:5px 7px}
+  .order-brand{font-size:6.5px}
+  .order-card h4{font-size:21px;min-height:42px;margin:5px 0 6px}
+  .order-card p{font-size:7.5px}
+}
+@media(max-width:370px){.order-card h4{font-size:19px}.order-card{padding:11px}}
+
+
+.order-filters{margin:18px 0 18px;}
+.order-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+.order-category{display:inline-flex;align-items:center;justify-content:center;padding:6px 10px;border-radius:999px;background:#fff;color:var(--text);border:1px solid var(--line);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;}
+.order-grid .order-card{display:flex;flex-direction:column;}
+@media (max-width:760px){.order-filters{margin:14px 0 16px;}.order-card-top{margin-bottom:12px;}.order-category{font-size:10px;padding:5px 8px;}}
+
+.order-filter{border:1px solid var(--line);padding:11px 16px;border-radius:999px;font-size:10px;text-transform:uppercase;letter-spacing:.07em;background:transparent;color:var(--ink);cursor:pointer;font-family:Montserrat,sans-serif}.order-filter.active{background:var(--wine);border-color:var(--wine);color:white}@media(max-width:760px){.order-filter{white-space:nowrap;min-height:40px;padding:9px 13px;font-size:7px;background:#fffaf4;flex:0 0 auto}.order-filter.active{background:var(--wine);color:white}}

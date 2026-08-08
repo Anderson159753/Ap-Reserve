@@ -787,12 +787,372 @@ const products = [
 let cart = JSON.parse(localStorage.getItem("apReserveCart") || "[]").filter(i => products.some(p => p.id === i.id));
 let favorites = JSON.parse(localStorage.getItem("apReserveFavorites") || "[]");
 let currentFilter = "todos";
+let orderCurrentFilter = "todos";
 let currentProduct = null;
 
 const $ = s => document.querySelector(s);
 const grid = $("#productGrid");
 const money = v => v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
 const categoryLabel = c => c === "compartilhavel" ? "Compartilhável" : c[0].toUpperCase()+c.slice(1);
+
+
+const orderProducts = [
+  {
+    "name": "212 Sexy",
+    "brand": "Carolina Herrera",
+    "category": "feminino"
+  },
+  {
+    "name": "212 VIP Rosé",
+    "brand": "Carolina Herrera",
+    "category": "feminino"
+  },
+  {
+    "name": "Alien",
+    "brand": "Mugler",
+    "category": "feminino"
+  },
+  {
+    "name": "Amor Amor",
+    "brand": "Cacharel",
+    "category": "feminino"
+  },
+  {
+    "name": "Angel",
+    "brand": "Mugler",
+    "category": "feminino"
+  },
+  {
+    "name": "Armani Code Femme",
+    "brand": "Giorgio Armani",
+    "category": "feminino"
+  },
+  {
+    "name": "Baccarat Rouge 540",
+    "brand": "Maison Francis Kurkdjian",
+    "category": "compartilhavel"
+  },
+  {
+    "name": "Chaleur",
+    "brand": "Jordan Veretout Paris",
+    "category": "feminino"
+  },
+  {
+    "name": "Chloé Eau de Parfum",
+    "brand": "Chloé",
+    "category": "feminino"
+  },
+  {
+    "name": "Club de Nuit Woman",
+    "brand": "Armaf",
+    "category": "feminino"
+  },
+  {
+    "name": "Eclaire",
+    "brand": "Lattafa",
+    "category": "feminino"
+  },
+  {
+    "name": "Fakhar Rose",
+    "brand": "Lattafa",
+    "category": "feminino"
+  },
+  {
+    "name": "Fame",
+    "brand": "Rabanne",
+    "category": "feminino"
+  },
+  {
+    "name": "Fantasy",
+    "brand": "Britney Spears",
+    "category": "feminino"
+  },
+  {
+    "name": "Flower by Kenzo",
+    "brand": "Kenzo",
+    "category": "feminino"
+  },
+  {
+    "name": "Gabriela Sabatini",
+    "brand": "Gabriela Sabatini",
+    "category": "feminino"
+  },
+  {
+    "name": "Good Girl",
+    "brand": "Carolina Herrera",
+    "category": "feminino"
+  },
+  {
+    "name": "La Belle Le Parfum",
+    "brand": "Jean Paul Gaultier",
+    "category": "feminino"
+  },
+  {
+    "name": "Lady Million",
+    "brand": "Rabanne",
+    "category": "feminino"
+  },
+  {
+    "name": "La Vie Est Belle Elixir",
+    "brand": "Lancôme",
+    "category": "feminino"
+  },
+  {
+    "name": "Libre",
+    "brand": "Yves Saint Laurent",
+    "category": "feminino"
+  },
+  {
+    "name": "L'Interdit",
+    "brand": "Givenchy",
+    "category": "feminino"
+  },
+  {
+    "name": "Neroli Portofino",
+    "brand": "Tom Ford",
+    "category": "compartilhavel"
+  },
+  {
+    "name": "Olympéa",
+    "brand": "Rabanne",
+    "category": "feminino"
+  },
+  {
+    "name": "Poggia",
+    "brand": "Tiziana Terenzi",
+    "category": "feminino"
+  },
+  {
+    "name": "Porto Neroli",
+    "brand": "Maison Alhambra",
+    "category": "compartilhavel"
+  },
+  {
+    "name": "Reyna",
+    "brand": "Maison Alhambra",
+    "category": "feminino"
+  },
+  {
+    "name": "Rouge Royal",
+    "brand": "Marina de Bourbon",
+    "category": "feminino"
+  },
+  {
+    "name": "Royal Amber",
+    "brand": "Orientica",
+    "category": "compartilhavel"
+  },
+  {
+    "name": "Sabah Al Ward",
+    "brand": "Al Wataniah",
+    "category": "feminino"
+  },
+  {
+    "name": "Scandal By Night",
+    "brand": "Jean Paul Gaultier",
+    "category": "feminino"
+  },
+  {
+    "name": "Tobacco Vanille",
+    "brand": "Tom Ford",
+    "category": "compartilhavel"
+  },
+  {
+    "name": "Very Good Girl",
+    "brand": "Carolina Herrera",
+    "category": "feminino"
+  },
+  {
+    "name": "Yara",
+    "brand": "Lattafa",
+    "category": "feminino"
+  },
+  {
+    "name": "Dolce & Gabbana Light Blue",
+    "brand": "Dolce & Gabbana",
+    "category": "feminino"
+  },
+  {
+    "name": "1 Million",
+    "brand": "Rabanne",
+    "category": "masculino"
+  },
+  {
+    "name": "212 Men",
+    "brand": "Carolina Herrera",
+    "category": "masculino"
+  },
+  {
+    "name": "212 VIP Black",
+    "brand": "Carolina Herrera",
+    "category": "masculino"
+  },
+  {
+    "name": "212 VIP Men",
+    "brand": "Carolina Herrera",
+    "category": "masculino"
+  },
+  {
+    "name": "Al Dana Niche",
+    "brand": "Lattafa",
+    "category": "masculino"
+  },
+  {
+    "name": "Allure Blanche Edition",
+    "brand": "Chanel",
+    "category": "masculino"
+  },
+  {
+    "name": "Animale for Men",
+    "brand": "Animale",
+    "category": "masculino"
+  },
+  {
+    "name": "Asad",
+    "brand": "Lattafa",
+    "category": "masculino"
+  },
+  {
+    "name": "Azzaro Pour Homme",
+    "brand": "Azzaro",
+    "category": "masculino"
+  },
+  {
+    "name": "Azzaro Silver Black",
+    "brand": "Azzaro",
+    "category": "masculino"
+  },
+  {
+    "name": "Azzaro Wanted",
+    "brand": "Azzaro",
+    "category": "masculino"
+  },
+  {
+    "name": "Bad Boy",
+    "brand": "Carolina Herrera",
+    "category": "masculino"
+  },
+  {
+    "name": "Club de Nuit Intense Man",
+    "brand": "Armaf",
+    "category": "masculino"
+  },
+  {
+    "name": "Fahrenheit",
+    "brand": "Dior",
+    "category": "masculino"
+  },
+  {
+    "name": "Green Irish Tweed",
+    "brand": "Creed",
+    "category": "masculino"
+  },
+  {
+    "name": "Haltane",
+    "brand": "Parfums de Marly",
+    "category": "masculino"
+  },
+  {
+    "name": "Hugo Boss",
+    "brand": "Hugo Boss",
+    "category": "masculino"
+  },
+  {
+    "name": "Invictus",
+    "brand": "Rabanne",
+    "category": "masculino"
+  },
+  {
+    "name": "L'Homme Libre",
+    "brand": "Yves Saint Laurent",
+    "category": "masculino"
+  },
+  {
+    "name": "Le Male",
+    "brand": "Jean Paul Gaultier",
+    "category": "masculino"
+  },
+  {
+    "name": "Layton",
+    "brand": "Parfums de Marly",
+    "category": "masculino"
+  },
+  {
+    "name": "Mussamam White Intense",
+    "brand": "Lattafa",
+    "category": "masculino"
+  },
+  {
+    "name": "One Million Privé",
+    "brand": "Rabanne",
+    "category": "masculino"
+  },
+  {
+    "name": "One Million Royal",
+    "brand": "Rabanne",
+    "category": "masculino"
+  },
+  {
+    "name": "Oud Wood",
+    "brand": "Tom Ford",
+    "category": "compartilhavel"
+  },
+  {
+    "name": "Pegasus Exclusif",
+    "brand": "Parfums de Marly",
+    "category": "masculino"
+  },
+  {
+    "name": "Polo Black",
+    "brand": "Ralph Lauren",
+    "category": "masculino"
+  },
+  {
+    "name": "Sauvage Elixir",
+    "brand": "Dior",
+    "category": "masculino"
+  },
+  {
+    "name": "Scandal Pour Homme",
+    "brand": "Jean Paul Gaultier",
+    "category": "masculino"
+  },
+  {
+    "name": "Silver Scent",
+    "brand": "Jacques Bogart",
+    "category": "masculino"
+  },
+  {
+    "name": "Spicebomb",
+    "brand": "Viktor&Rolf",
+    "category": "masculino"
+  },
+  {
+    "name": "Turathi Blue",
+    "brand": "Afnan",
+    "category": "masculino"
+  },
+  {
+    "name": "Tygar",
+    "brand": "Bvlgari",
+    "category": "masculino"
+  },
+  {
+    "name": "Ultra Male",
+    "brand": "Jean Paul Gaultier",
+    "category": "masculino"
+  },
+  {
+    "name": "Versace Pour Homme",
+    "brand": "Versace",
+    "category": "masculino"
+  },
+  {
+    "name": "Victory Elixir",
+    "brand": "Rabanne",
+    "category": "masculino"
+  }
+];
 
 function renderProducts(){
   const term = $("#searchInput").value.trim().toLowerCase();
@@ -801,20 +1161,43 @@ function renderProducts(){
     <article class="product-card">
       <button class="favorite-button ${favorites.includes(p.id)?'active':''}" onclick="event.stopPropagation();toggleFavorite(${p.id})" aria-label="Favoritar ${p.name}">${favorites.includes(p.id)?'♥':'♡'}</button>
       <button class="product-image" onclick="openProduct(${p.id})" aria-label="Ver detalhes de ${p.name}">
-        <img src="${p.image}" alt="Frasco original ${p.inspired}, exibido como referência" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=700&q=80'">
+        <img src="${p.image}" alt="Imagem meramente ilustrativa da inspiração ${p.inspired}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=700&q=80'">
         <span class="product-badge">${categoryLabel(p.category)}</span>
+        <span class="illustrative-badge">Inspiração</span>
       </button>
       <div class="product-info">
-        <span class="product-reference">Inspiração em ${p.brand}</span>
-        <h3>${p.name}</h3><p>${p.short}</p>
-        <div class="product-bottom">
-          <div class="price"><small>50 ml</small><strong>${money(p.price)}</strong></div>
-          <div class="card-actions"><button class="buy-button" onclick="addToCart(${p.id})">Comprar</button></div>
-        </div>
+        <span class="product-reference">Referência olfativa em ${p.brand}</span>
+        <h3>${p.name}</h3>
+        <p>${p.short}</p>
       </div>
     </article>`).join("");
   $("#emptyState").style.display = visible.length ? "none" : "block";
+  renderOrderProducts();
 }
+
+function renderOrderProducts(){
+  const orderGrid = $("#orderGrid");
+  const orderEmpty = $("#orderEmpty");
+  const orderSection = $("#por-encomenda");
+  if(!orderGrid || !orderSection) return;
+  const term = $("#searchInput").value.trim().toLowerCase();
+  orderSection.style.display = "block";
+  const visible = orderProducts.filter(p => (orderCurrentFilter === "todos" || p.category === orderCurrentFilter) && `${p.name} ${p.brand} ${p.category}`.toLowerCase().includes(term));
+  orderGrid.innerHTML = visible.map(p => `
+    <article class="order-card">
+      <div class="order-card-top">
+        <span class="availability-pill order">Disponível por encomenda</span>
+        <span class="order-category">${categoryLabel(p.category)}</span>
+      </div>
+      <div class="order-card-body">
+        <span class="order-brand">${p.brand}</span>
+        <h4>${p.name}</h4>
+        <p>Referência olfativa disponível mediante encomenda.</p>
+      </div>
+    </article>`).join("");
+  orderEmpty.style.display = visible.length ? "none" : "block";
+}
+
 
 function toggleFavorite(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];localStorage.setItem("apReserveFavorites",JSON.stringify(favorites));renderProducts()}
 function addToCart(id){const existing=cart.find(i=>i.id===id);existing?existing.qty++:cart.push({id,qty:1});saveCart();showToast()}
@@ -849,7 +1232,7 @@ function openCart(){closeModal();$("#cartDrawer").classList.add("open");$("#over
 function closeCart(){$("#cartDrawer").classList.remove("open");$("#overlay").classList.remove("active");document.body.classList.remove("locked")}
 function openProduct(id){
   currentProduct=products.find(p=>p.id===id);const p=currentProduct;
-  $("#modalImage").src=p.image;$("#modalName").textContent=p.name;$("#modalInspired").textContent=p.inspired;$("#modalCategory").textContent=categoryLabel(p.category);$("#modalDescription").textContent=p.description;$("#modalNotes").innerHTML=p.notes.map(n=>`<span>${n}</span>`).join("");$("#modalPrice").textContent=money(p.price);$("#officialLink").href=p.official;
+  $("#modalImage").src=p.image;$("#modalName").textContent=p.name;$("#modalInspired").textContent=p.inspired;$("#modalCategory").textContent=categoryLabel(p.category);$("#modalDescription").textContent=p.description;$("#modalNotes").innerHTML=p.notes.map(n=>`<span>${n}</span>`).join("");$("#officialLink").href=p.official;
   $("#modalOccasion").textContent=p.occasion;$("#modalSeason").textContent=p.season;$("#modalPerformance").textContent=p.performance;
   $("#productModal").classList.add("open");$("#overlay").classList.add("active");document.body.classList.add("locked")
 }
@@ -888,14 +1271,15 @@ function submitCheckout(e){
 function showToast(){$("#toast").classList.add("show");setTimeout(()=>$("#toast").classList.remove("show"),1800)}
 
 document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");currentFilter=btn.dataset.filter;renderProducts()}));
-$("#searchInput").addEventListener("input",renderProducts);$("#openCart").onclick=openCart;$("#mobileCart").onclick=openCart;$("#heroCart").onclick=openCart;$("#closeCart").onclick=closeCart;$("#closeModal").onclick=closeModal;$("#overlay").onclick=()=>{closeCart();closeModal();closeMenu();closeCheckout()};$("#checkoutButton").onclick=openCheckout;$("#modalBuy").onclick=()=>{if(currentProduct){addToCart(currentProduct.id);closeModal();openCart()}};
+document.querySelectorAll(".order-filter").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".order-filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");orderCurrentFilter=btn.dataset.orderFilter;renderOrderProducts()}));
+$("#searchInput").addEventListener("input",renderProducts);if($("#openCart"))$("#openCart").onclick=openCart;if($("#mobileCart"))$("#mobileCart").onclick=openCart;$("#heroCart").onclick=()=>document.querySelector("#catalogo").scrollIntoView({behavior:"smooth"});if($("#closeCart"))$("#closeCart").onclick=closeCart;$("#closeModal").onclick=closeModal;$("#overlay").onclick=()=>{closeCart();closeModal();closeMenu();closeCheckout()};if($("#checkoutButton"))$("#checkoutButton").onclick=openCheckout;if($("#modalBuy"))$("#modalBuy").onclick=()=>{if(currentProduct){addToCart(currentProduct.id);closeModal();openCart()}};
 const mobileMenu=$("#mobileMenu");
 function openMenu(){mobileMenu.classList.add("open");mobileMenu.setAttribute("aria-hidden","false");$("#overlay").classList.add("active");document.body.classList.add("locked");$("#openMenu").setAttribute("aria-expanded","true")}
 function closeMenu(){if(!mobileMenu)return;mobileMenu.classList.remove("open");mobileMenu.setAttribute("aria-hidden","true");$("#openMenu").setAttribute("aria-expanded","false");if(!$("#cartDrawer").classList.contains("open")&&!$("#productModal").classList.contains("open")){$("#overlay").classList.remove("active");document.body.classList.remove("locked")}}
 $("#openMenu").onclick=openMenu;$("#closeMenu").onclick=closeMenu;document.querySelectorAll(".mobile-menu-links a").forEach(a=>a.addEventListener("click",closeMenu));
-$("#bottomCart").onclick=openCart;
+if($("#bottomCart"))$("#bottomCart").onclick=openCart;
 $("#bottomFavorites").onclick=()=>{document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b.dataset.filter==="favoritos"));currentFilter="favoritos";renderProducts();document.querySelector("#catalogo").scrollIntoView({behavior:"smooth"})};
-$(".header").addEventListener("click",e=>{if(window.innerWidth<=760&&e.target===$(".header"))openCart()});
+$(".header").addEventListener("click",e=>{if(window.innerWidth<=760&&e.target===$(".header"))document.querySelector("#catalogo").scrollIntoView({behavior:"smooth"})});
 $("#year").textContent=new Date().getFullYear();
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeCart();closeModal();closeCheckout()}});
 
